@@ -1,39 +1,66 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ORATAH JNR DATA SOLUTION</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0a0906;color:#f5e8c7;padding-bottom:80px}.top{background:linear-gradient(135deg,#ffcc00 0%,#ffdd44 40%,#ffd700 100%);padding:18px 18px 22px;border-radius:0 0 24px 24px;color:#000;position:sticky;top:0;z-index:10}.top h1{color:#000;font-weight:900;letter-spacing:1px;line-height:1.1;font-size:22px}.top p{font-size:10px;letter-spacing:3px;font-weight:700;margin-top:4px}.tabs{display:flex;gap:8px;overflow-x:auto;padding:14px 12px;position:sticky;top:86px;background:#0a0906;z-index:9}.tabs::-webkit-scrollbar{display:none}.tab{white-space:nowrap;padding:10px 16px;border-radius:20px;border:1px solid #3a3320;background:#1a1500;color:#8a7a4a;font-size:12px;cursor:pointer;touch-action:manipulation}.tab_active{background:linear-gradient(135deg,#ffd700,#ffcc00);color:#000;border-color:#ffd700;font-weight:900}.input{width:92%;margin:12px 4%;padding:16px 14px;border-radius:12px;border:1px solid #3a3320;background:#1e1a0a;color:#fff;font-size:16px;outline:none}.hint{text-align:center;color:#6b5e3a;font-size:11px;margin:6px 0;letter-spacing:1px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.card{background:linear-gradient(180deg,#2a2300 0%,#161200 100%);border:1px solid #3a3320;border-radius:16px;padding:12px;position:relative}.card b{font-size:11px;line-height:1.2;display:block;min-height:28px}.price{color:#ffd700;font-weight:900;font-size:16px;margin:8px 0}.valid{font-size:9px;color:#8a7a4a;margin-bottom:8px}.btn{width:100%;background:linear-gradient(135deg,#ffd700,#ffb800);border:none;padding:12px;border-radius:10px;font-weight:900;color:#000;font-size:13px;cursor:pointer;touch-action:manipulation;position:relative;z-index:2;-webkit-tap-highlight-color:transparent}.btn:active{transform:scale(.96);background:#ffcc00}</style></head><body>
-<div class="top"><div style="display:flex;justify-content:space-between;align-items:center"><div><h1>ORATAH JNR DATA<br>SOLUTION</h1><p>GOLD • ORIGINAL 30 OFFERS</p></div><div style="font-size:22px">🔔 👤</div></div></div>
-<input class="input" id="phone" placeholder="Phone / Meter / IUC • 07XX">
-<div class="hint">CHOOSE YOUR BUNDLE • 30 OFFERS</div>
-<div class="tabs" id="tabs"><div class="tab tab_active" onclick="filter('all',this)">All 30</div><div class="tab" onclick="filter('daily',this)">Daily</div><div class="tab" onclick="filter('3day',this)">3 Days</div><div class="tab" onclick="filter('weekly',this)">Weekly</div><div class="tab" onclick="filter('monthly',this)">Monthly</div></div>
-<div class="grid" id="grid"></div>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah JNR Gold 30</title>
+<style>
+body{background:#0a0a0a;color:#ffd700;font-family:Arial;margin:0}
+.header{background:linear-gradient(135deg,#ffcc00,#ffaa00);color:#000;padding:18px;border-radius:0 0 25px 25px;text-align:center}
+.input-box{margin:15px;padding:14px;width:90%;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#fff;text-align:center;display:block;margin-left:auto;margin-right:auto}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+.tab{padding:10px 16px;border-radius:20px;border:1px solid #333;background:#1a1a1a;color:#aaa}
+.tab_active{background:#ffcc00;color:#000;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:15px}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;text-align:center}
+.card b{color:#fff;font-size:18px;display:block}
+.price{color:#ffcc00;font-weight:bold;margin:6px 0}
+.btn{background:#ffcc00;color:#000;border:none;padding:10px;border-radius:20px;width:100%;font-weight:bold}
+.disclaimer{background:#1a1a00;border:1px solid #443d00;border-radius:10px;padding:12px;margin:15px;color:#ccc;font-size:12px;text-align:center}
+.footer{padding:15px;text-align:center;color:#666;font-size:11px}
+</style></head><body>
+<div class="header"><h2 style="margin:0">ORATAH JNR DATA SOLUTION</h2><small>GOLD • ORIGINAL 30 OFFERS</small></div>
+<input id="phone" class="input-box" placeholder="Phone / Meter / IUC • 07XX">
+<div style="text-align:center;color:#666;font-size:12px">CHOOSE YOUR BUNDLE • 30 OFFERS</div>
+<div class="filters">
+<button class="tab tab_active" onclick="filter('all',this)">All 30</button>
+<button class="tab" onclick="filter('daily',this)">Daily</button>
+<button class="tab" onclick="filter('3days',this)">3 Days</button>
+<button class="tab" onclick="filter('weekly',this)">Weekly</button>
+<button class="tab" onclick="filter('monthly',this)">Monthly</button>
+</div>
+<div id="grid" class="grid"></div>
+
+<div class="disclaimer">⚠️ <b style="color:#ffcc00">Disclaimer:</b> Oratah JNR is independent reseller NOT affiliated with Safaricom PLC. Bundles via third-party corporate lines. Delivery depends on supplier.</div>
+<div class="footer"><b style="color:#ffcc00">Refund:</b> Fail in 30mins = full refund via M-Pesa. WhatsApp with code.<br>© 2026 Oratah JNR - Independent</div>
+
 <script>
-const bundles=[
-{id:1,n:"1GB • 1.5GB BONUS",p:19,v:"24HR",c:"daily"},{id:2,n:"2GB • 3GB BONUS",p:35,v:"24HR",c:"daily"},{id:3,n:"3GB • 4.5GB BONUS",p:49,v:"24HR",c:"daily"},{id:4,n:"1GB • 24HR",p:20,v:"24HR",c:"daily"},{id:5,n:"2GB • 24HR",p:35,v:"24HR",c:"daily"},{id:6,n:"3GB • 24HR",p:50,v:"24HR",c:"daily"},
-{id:7,n:"5GB • 3DAYS",p:79,v:"3 DAYS",c:"3day"},{id:8,n:"7GB • 3DAYS",p:99,v:"3 DAYS",c:"3day"},{id:9,n:"10GB • 3DAYS",p:139,v:"3 DAYS",c:"3day"},{id:10,n:"3GB • 3DAYS",p:55,v:"3 DAYS",c:"3day"},
-{id:11,n:"7GB • 7DAYS",p:149,v:"7 DAYS",c:"weekly"},{id:12,n:"10GB • 7DAYS",p:199,v:"7 DAYS",c:"weekly"},{id:13,n:"15GB • 7DAYS",p:249,v:"7 DAYS",c:"weekly"},{id:14,n:"12GB • 7DAYS",p:220,v:"7 DAYS",c:"weekly"},{id:15,n:"8GB • 7DAYS",p:169,v:"7 DAYS",c:"weekly"},{id:16,n:"20GB • 7DAYS",p:299,v:"7 DAYS",c:"weekly"},{id:17,n:"5GB • 7DAYS",p:99,v:"7 DAYS",c:"weekly"},{id:18,n:"25GB • 7DAYS",p:349,v:"7 DAYS",c:"weekly"},
-{id:19,n:"20GB • 30DAYS",p:299,v:"30 DAYS",c:"monthly"},{id:20,n:"30GB • 30DAYS",p:499,v:"30 DAYS",c:"monthly"},{id:21,n:"40GB • 30DAYS",p:699,v:"30 DAYS",c:"monthly"},{id:22,n:"60GB • 30DAYS",p:999,v:"30 DAYS",c:"monthly"},{id:23,n:"80GB • 30DAYS",p:1299,v:"30 DAYS",c:"monthly"},{id:24,n:"100GB • 30DAYS",p:1499,v:"30 DAYS",c:"monthly"},{id:25,n:"10GB • 30DAYS",p:199,v:"30 DAYS",c:"monthly"},{id:26,n:"15GB • 30DAYS",p:249,v:"30 DAYS",c:"monthly"},{id:27,n:"50GB • 30DAYS",p:849,v:"30 DAYS",c:"monthly"},{id:28,n:"25GB • 30DAYS",p:399,v:"30 DAYS",c:"monthly"},{id:29,n:"35GB • 30DAYS",p:599,v:"30 DAYS",c:"monthly"},{id:30,n:"70GB • 30DAYS",p:1149,v:"30 DAYS",c:"monthly"}
+let bundles=[
+{id:1,n:"1GB Daily",p:19,c:"daily"},{id:2,n:"2GB Daily",p:35,c:"daily"},{id:3,n:"5GB Daily",p:75,c:"daily"},
+{id:4,n:"1GB 3Days",p:45,c:"3days"},{id:5,n:"2GB 3Days",p:70,c:"3days"},{id:6,n:"3GB 3Days",p:99,c:"3days"},
+{id:7,n:"1GB Weekly",p:150,c:"weekly"},{id:8,n:"2GB Weekly",p:250,c:"weekly"},{id:9,n:"5GB Weekly",p:400,c:"weekly"},{id:10,n:"10GB Weekly",p:699,c:"weekly"},
+{id:11,n:"5GB Monthly",p:450,c:"monthly"},{id:12,n:"10GB Monthly",p:799,c:"monthly"},{id:13,n:"15GB Monthly",p:999,c:"monthly"},{id:14,n:"20GB Monthly",p:1250,c:"monthly"},{id:15,n:"30GB Monthly",p:1800,c:"monthly"},
+{id:16,n:"1.5GB Daily",p:25,c:"daily"},{id:17,n:"3GB Daily",p:50,c:"daily"},{id:18,n:"4GB 3Days",p:120,c:"3days"},
+{id:19,n:"8GB Weekly",p:550,c:"weekly"},{id:20,n:"12GB Weekly",p:800,c:"weekly"},{id:21,n:"8GB Monthly",p:650,c:"monthly"},
+{id:22,n:"25GB Monthly",p:1499,c:"monthly"},{id:23,n:"50GB Monthly",p:2500,c:"monthly"},{id:24,n:"2GB Till Mid",p:20,c:"daily"},
+{id:25,n:"Unlimited 24h",p:99,c:"daily"},{id:26,n:"40GB Monthly",p:2100,c:"monthly"},{id:27,n:"100GB Monthly",p:3999,c:"monthly"},
+{id:28,n:"6GB 3Days",p:180,c:"3days"},{id:29,n:"3GB Weekly",p:300,c:"weekly"},{id:30,n:"12GB Monthly",p:850,c:"monthly"}
 ];
-const grid=document.getElementById('grid');
+let grid=document.getElementById('grid');
 function render(list){
-grid.innerHTML='';
-list.forEach(b=>{
-grid.innerHTML+=`<div class="card"><b>${b.n}</b><div class="valid">${b.v}</div><div class="price">KSh ${b.p}</div><button class="btn" ontouchstart="" onclick="buy('${b.n}',${b.p})">Buy Now</button></div>`
-});
+ grid.innerHTML="";
+ list.forEach(b=>{
+  grid.innerHTML+=`<div class="card"><b>${b.n}</b><div class="price">KSh ${b.p}</div><button class="btn" onclick="buy('${b.n}',${b.p})">Buy Now</button></div>`;
+ });
 }
-render(bundles);
 function filter(cat,el){
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('tab_active'));
-el.classList.add('tab_active');
-if(cat==='all') render(bundles); else render(bundles.filter(b=>b.c===cat));
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('tab_active'));
+ el.classList.add('tab_active');
+ if(cat==="all") render(bundles); else render(bundles.filter(x=>x.c===cat));
 }
 function buy(name,price){
-let phone=document.getElementById('phone').value.trim();
-if(!phone||phone.length<10){alert('⚠️ Enter M-Pesa Phone 07XX...');document.getElementById('phone').focus();return}
-alert('✅ ORATAH JNR\n\nBundle: '+name+'\nPrice: KSh '+price+'\nPhone: '+phone+'\n\nNext: M-Pesa STK Push will be sent\nTill: 123456');
+ let phone=document.getElementById('phone').value;
+ if(!phone||phone.length<10){alert('⚠️ Enter M-Pesa Number 07XX');return;}
+ let myNumber="254712345678";
+ let msg=`Hi Oratah JNR%0ABundle: ${name}%0APrice: ${price}%0APhone: ${phone}%0AM-Pesa Code: ___`;
+ window.open(`https://wa.me/${myNumber}?text=${msg}`,'_blank');
 }
-</script<div style="background:#1a1a00;border:1px solid #ffd700;border-radius:10px;padding:15px;margin:15px;color:#ccc;font-size:13px;text-align:center;">
-⚠️ <strong style="color:#ffd700;">Disclaimer:</strong> Oratah JNR is an independent reseller and is NOT affiliated with, authorized by, or endorsed by Safaricom PLC. All bundles are delivered via third-party corporate business lines. Delivery depends on supplier uptime. By purchasing you agree to our reseller terms.
-</div>
-
-<div style="background:#111;border-top:1px solid #333;padding:20px;text-align:center;color:#aaa;font-size:12px;margin-top:20px;">
-<strong style="color:#ffd700;">Refund Policy:</strong> If bundle fails within 30 mins, full refund via M-Pesa. Contact WhatsApp with M-Pesa code.<br>
-© 2026 Oratah JNR - Independent Reseller
-</div>></body></html>
+render(bundles);
+</script></body></html>
