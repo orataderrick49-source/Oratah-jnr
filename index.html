@@ -11,6 +11,6 @@ let B=[{n:"1GB Daily",p:19,k:"daily"},{n:"2GB Daily",p:35,k:"daily"},{n:"5GB Dai
 let gr=document.getElementById('gr');
 function rnd(L){gr.innerHTML="";L.forEach(b=>{gr.innerHTML+=`<div class="c"><b>${b.n}</b><div class="p">KSh ${b.p}</div><button class="bt" onclick="buy('${b.n}',${b.p})">Buy Now</button></div>`})}
 function fil(k,e){document.querySelectorAll('.t').forEach(x=>x.classList.remove('ta'));e.classList.add('ta');if(k=='all')rnd(B);else rnd(B.filter(x=>x.k==k))}
-function buy(name,price){let ph=document.getElementById('ph').value;if(!ph||ph.length<10){alert('Enter Phone 07XX');return}let my="254700000000";let msg=`Hi Oratah JNR%0ABundle: ${name}%0APrice: KSh ${price}%0APhone: ${ph}%0AMpesa Code: ___`;window.open(`https://wa.me/${my}?text=${msg}`,'_blank')}
+function buy(name,price){let ph=document.getElementById('ph').value;if(!ph||ph.length<10){alert('Enter Phone 07XX');return}let my="254791102687";let msg=`Hi Oratah JNR%0ABundle: ${name}%0APrice: KSh ${price}%0APhone: ${ph}%0AMpesa Code: ___`;window.open(`https://wa.me/${my}?text=${msg}`,'_blank')}
 rnd(B);
 </script></body></html>
