@@ -1,66 +1,16 @@
-<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Oratah JNR Gold 30</title>
-<style>
-body{background:#0a0a0a;color:#ffd700;font-family:Arial;margin:0}
-.header{background:linear-gradient(135deg,#ffcc00,#ffaa00);color:#000;padding:18px;border-radius:0 0 25px 25px;text-align:center}
-.input-box{margin:15px;padding:14px;width:90%;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#fff;text-align:center;display:block;margin-left:auto;margin-right:auto}
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
-.tab{padding:10px 16px;border-radius:20px;border:1px solid #333;background:#1a1a1a;color:#aaa}
-.tab_active{background:#ffcc00;color:#000;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:15px}
-.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;text-align:center}
-.card b{color:#fff;font-size:18px;display:block}
-.price{color:#ffcc00;font-weight:bold;margin:6px 0}
-.btn{background:#ffcc00;color:#000;border:none;padding:10px;border-radius:20px;width:100%;font-weight:bold}
-.disclaimer{background:#1a1a00;border:1px solid #443d00;border-radius:10px;padding:12px;margin:15px;color:#ccc;font-size:12px;text-align:center}
-.footer{padding:15px;text-align:center;color:#666;font-size:11px}
-</style></head><body>
-<div class="header"><h2 style="margin:0">ORATAH JNR DATA SOLUTION</h2><small>GOLD • ORIGINAL 30 OFFERS</small></div>
-<input id="phone" class="input-box" placeholder="Phone / Meter / IUC • 07XX">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oratah JNR Gold</title><style>body{background:#0a0a0a;color:#ffd700;font-family:Arial;margin:0} .h{background:linear-gradient(135deg,#ffcc00,#ffb700);color:#000;padding:18px;border-radius:0 0 22px 22px;text-align:center} .in{margin:15px auto;padding:14px;width:88%;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#fff;display:block;text-align:center} .f{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px} .t{padding:10px 15px;border-radius:20px;border:1px solid #333;background:#1a1a1a;color:#aaa;touch-action:manipulation} .ta{background:#ffcc00;color:#000;font-weight:bold} .g{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:15px} .c{background:#111;border:1px solid #2a2a2a;border-radius:14px;padding:14px;text-align:center} .c b{color:#fff;font-size:17px} .p{color:#ffcc00;font-weight:bold;margin:6px 0} .bt{background:#ffcc00;color:#000;border:none;padding:11px;border-radius:22px;width:100%;font-weight:bold;touch-action:manipulation} .d{background:#1a1a00;border:1px solid #665500;border-radius:10px;padding:13px;margin:15px;color:#ddd;font-size:12px;text-align:center} .fo{padding:15px;text-align:center;color:#666;font-size:11px}</style></head><body>
+<div class="h"><h2 style="margin:0">ORATAH JNR DATA SOLUTION</h2><div>GOLD • ORIGINAL 30 OFFERS</div></div>
+<input id="ph" class="in" placeholder="Phone / Meter / IUC • 07XX">
 <div style="text-align:center;color:#666;font-size:12px">CHOOSE YOUR BUNDLE • 30 OFFERS</div>
-<div class="filters">
-<button class="tab tab_active" onclick="filter('all',this)">All 30</button>
-<button class="tab" onclick="filter('daily',this)">Daily</button>
-<button class="tab" onclick="filter('3days',this)">3 Days</button>
-<button class="tab" onclick="filter('weekly',this)">Weekly</button>
-<button class="tab" onclick="filter('monthly',this)">Monthly</button>
-</div>
-<div id="grid" class="grid"></div>
-
-<div class="disclaimer">⚠️ <b style="color:#ffcc00">Disclaimer:</b> Oratah JNR is independent reseller NOT affiliated with Safaricom PLC. Bundles via third-party corporate lines. Delivery depends on supplier.</div>
-<div class="footer"><b style="color:#ffcc00">Refund:</b> Fail in 30mins = full refund via M-Pesa. WhatsApp with code.<br>© 2026 Oratah JNR - Independent</div>
-
+<div class="f"><button class="t ta" onclick="fil('all',this)">All 30</button><button class="t" onclick="fil('daily',this)">Daily</button><button class="t" onclick="fil('3days',this)">3 Days</button><button class="t" onclick="fil('weekly',this)">Weekly</button><button class="t" onclick="fil('monthly',this)">Monthly</button></div>
+<div id="gr" class="g"></div>
+<div class="d">⚠️ <b style="color:#ffcc00">Disclaimer:</b> Oratah JNR is independent reseller NOT affiliated with Safaricom PLC. Bundles via third-party corporate lines. Delivery depends on supplier float.<br><b>Refund:</b> If bundle fails within 30 mins, full refund via M-Pesa. WhatsApp with M-Pesa code.</div>
+<div class="fo">Till: 123456 • © 2026 Oratah JNR Independent</div>
 <script>
-let bundles=[
-{id:1,n:"1GB Daily",p:19,c:"daily"},{id:2,n:"2GB Daily",p:35,c:"daily"},{id:3,n:"5GB Daily",p:75,c:"daily"},
-{id:4,n:"1GB 3Days",p:45,c:"3days"},{id:5,n:"2GB 3Days",p:70,c:"3days"},{id:6,n:"3GB 3Days",p:99,c:"3days"},
-{id:7,n:"1GB Weekly",p:150,c:"weekly"},{id:8,n:"2GB Weekly",p:250,c:"weekly"},{id:9,n:"5GB Weekly",p:400,c:"weekly"},{id:10,n:"10GB Weekly",p:699,c:"weekly"},
-{id:11,n:"5GB Monthly",p:450,c:"monthly"},{id:12,n:"10GB Monthly",p:799,c:"monthly"},{id:13,n:"15GB Monthly",p:999,c:"monthly"},{id:14,n:"20GB Monthly",p:1250,c:"monthly"},{id:15,n:"30GB Monthly",p:1800,c:"monthly"},
-{id:16,n:"1.5GB Daily",p:25,c:"daily"},{id:17,n:"3GB Daily",p:50,c:"daily"},{id:18,n:"4GB 3Days",p:120,c:"3days"},
-{id:19,n:"8GB Weekly",p:550,c:"weekly"},{id:20,n:"12GB Weekly",p:800,c:"weekly"},{id:21,n:"8GB Monthly",p:650,c:"monthly"},
-{id:22,n:"25GB Monthly",p:1499,c:"monthly"},{id:23,n:"50GB Monthly",p:2500,c:"monthly"},{id:24,n:"2GB Till Mid",p:20,c:"daily"},
-{id:25,n:"Unlimited 24h",p:99,c:"daily"},{id:26,n:"40GB Monthly",p:2100,c:"monthly"},{id:27,n:"100GB Monthly",p:3999,c:"monthly"},
-{id:28,n:"6GB 3Days",p:180,c:"3days"},{id:29,n:"3GB Weekly",p:300,c:"weekly"},{id:30,n:"12GB Monthly",p:850,c:"monthly"}
-];
-let grid=document.getElementById('grid');
-function render(list){
- grid.innerHTML="";
- list.forEach(b=>{
-  grid.innerHTML+=`<div class="card"><b>${b.n}</b><div class="price">KSh ${b.p}</div><button class="btn" onclick="buy('${b.n}',${b.p})">Buy Now</button></div>`;
- });
-}
-function filter(cat,el){
- document.querySelectorAll('.tab').forEach(t=>t.classList.remove('tab_active'));
- el.classList.add('tab_active');
- if(cat==="all") render(bundles); else render(bundles.filter(x=>x.c===cat));
-}
-function buy(name,price){
- let phone=document.getElementById('phone').value;
- if(!phone||phone.length<10){alert('⚠️ Enter M-Pesa Number 07XX');return;}
- let myNumber="254712345678";
- let msg=`Hi Oratah JNR%0ABundle: ${name}%0APrice: ${price}%0APhone: ${phone}%0AM-Pesa Code: ___`;
- window.open(`https://wa.me/${myNumber}?text=${msg}`,'_blank');
-}
-render(bundles);
+let B=[{n:"1GB Daily",p:19,k:"daily"},{n:"2GB Daily",p:35,k:"daily"},{n:"5GB Daily",p:75,k:"daily"},{n:"1GB 3Days",p:45,k:"3days"},{n:"2GB 3Days",p:70,k:"3days"},{n:"3GB 3Days",p:99,k:"3days"},{n:"1GB Weekly",p:150,k:"weekly"},{n:"2GB Weekly",p:250,k:"weekly"},{n:"5GB Weekly",p:400,k:"weekly"},{n:"10GB Weekly",p:699,k:"weekly"},{n:"5GB Monthly",p:450,k:"monthly"},{n:"10GB Monthly",p:799,k:"monthly"},{n:"15GB Monthly",p:999,k:"monthly"},{n:"20GB Monthly",p:1250,k:"monthly"},{n:"30GB Monthly",p:1800,k:"monthly"},{n:"1.5GB Daily",p:25,k:"daily"},{n:"3GB Daily",p:50,k:"daily"},{n:"4GB 3Days",p:120,k:"3days"},{n:"8GB Weekly",p:550,k:"weekly"},{n:"12GB Weekly",p:800,k:"weekly"},{n:"8GB Monthly",p:650,k:"monthly"},{n:"25GB Monthly",p:1499,k:"monthly"},{n:"50GB Monthly",p:2500,k:"monthly"},{n:"2GB Till Mid",p:20,k:"daily"},{n:"Unlimited 24h",p:99,k:"daily"},{n:"40GB Monthly",p:2100,k:"monthly"},{n:"100GB Monthly",p:3999,k:"monthly"},{n:"6GB 3Days",p:180,k:"3days"},{n:"3GB Weekly",p:300,k:"weekly"},{n:"12GB Monthly",p:850,k:"monthly"}];
+let gr=document.getElementById('gr');
+function rnd(L){gr.innerHTML="";L.forEach(b=>{gr.innerHTML+=`<div class="c"><b>${b.n}</b><div class="p">KSh ${b.p}</div><button class="bt" onclick="buy('${b.n}',${b.p})">Buy Now</button></div>`})}
+function fil(k,e){document.querySelectorAll('.t').forEach(x=>x.classList.remove('ta'));e.classList.add('ta');if(k=='all')rnd(B);else rnd(B.filter(x=>x.k==k))}
+function buy(name,price){let ph=document.getElementById('ph').value;if(!ph||ph.length<10){alert('Enter Phone 07XX');return}let my="254700000000";let msg=`Hi Oratah JNR%0ABundle: ${name}%0APrice: KSh ${price}%0APhone: ${ph}%0AMpesa Code: ___`;window.open(`https://wa.me/${my}?text=${msg}`,'_blank')}
+rnd(B);
 </script></body></html>
