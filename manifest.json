@@ -1,21 +1,13 @@
 {
   "name": "Oratah JNR Data Solution",
   "short_name": "Oratah JNR",
-  "description": "Gold Original 30 Data Offers - Fast M-Pesa",
-  "start_url": "./",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#ffcc00",
   "icons": [
-    {
-      "src": "logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    {"src": "icon-192.png","sizes": "192x192","type": "image/png"},
+    {"src": "icon-512.png","sizes": "512x512","type": "image/png"},
+    {"src": "logo.png","sizes": "512x512","type": "image/png"}
   ]
 }
