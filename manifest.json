@@ -1,1 +1,9 @@
-{"name":"Oratah JNR Data Solution","short_name":"Oratah JNR","start_url":"./","display":"standalone","background_color":"#0a0a0a","theme_color":"#ffcc00","icons":[]}
+{
+  "name": "Oratah JNR Data Solution",
+  "short_name": "Oratah JNR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ffcc00",
+  "icons": []
+}
