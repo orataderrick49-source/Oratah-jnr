@@ -1,1 +1,90 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ORATAH JNR NETWORKS</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:#080808;color:#fff}.header{position:sticky;top:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(10,10,10,0.85);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,215,0,0.15)}.header-left{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;background:#FFC300;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:20px}.copy-btn{background:#FFC300;border:none;padding:9px 16px;border-radius:25px;font-weight:800}.banner{background:linear-gradient(135deg,#FFC300,#FFD60A);color:#000;padding:22px 16px;text-align:center}.banner h1{font-size:26px;font-weight:900}.tabs{display:flex;gap:10px;padding:14px 12px;background:#0a0a0a}.tab{padding:10px 20px;border-radius:25px;border:1.5px solid rgba(255,195,0,0.4);background:transparent;color:#FFC300;font-weight:600}.tab.active{background:#FFC300;color:#000}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.card{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,0.22);border-radius:18px;padding:18px 14px;text-align:center}.price{font-size:32px;font-weight:900;color:#FFC300;margin:8px 0}.buy{background:#FFC300;color:#000;border:none;width:100%;padding:12px;border-radius:25px;font-weight:800}</style></head><body><div class="header"><div class="header-left"><div class="logo">OJN</div><b>ORATAH JNR</b></div><button class="copy-btn">Copy Till 📋</button></div><div class="banner"><h1>ORATAH JNR NETWORKS</h1><p>⚡ Fast • ✅ Reliable • 🔒 Trusted</p></div><div class="tabs"><button class="tab active">Data</button><button class="tab">Airtime</button><button class="tab">KPLC</button><button class="tab">Bills</button></div><div class="grid"><div class="card"><h3>1GB 1hour</h3><div class="price">19</div><button class="buy">Buy Now</button></div><div class="card"><h3>2GB Daily</h3><div class="price">50</div><button class="buy">Buy Now</button></div><div class="card"><h3>2hours unlimited</h3><div class="price">35</div><button class="buy">Buy Now</button></div><div class="card"><h3>1GB 3Days</h3><div class="price">50</div><button class="buy">Buy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORATAH JNR NETWORKS - Fast Reliable Data</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#080808;color:#fff}
+.header{position:sticky;top:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(10,10,10,0.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,195,0,0.2)}
+.logo{width:42px;height:42px;background:#FFC300;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:20px}
+.copy-btn{background:#FFC300;border:none;padding:9px 16px;border-radius:25px;font-weight:800;cursor:pointer}
+.banner{background:linear-gradient(135deg,#FFC300,#FFD60A);color:#000;padding:22px 16px;text-align:center}
+.banner h1{font-size:26px;font-weight:900}
+.free-banner{background:#111;border:1px dashed #FFC300;margin:12px;border-radius:12px;padding:12px;text-align:center;color:#FFC300;font-weight:700}
+.tabs{display:flex;gap:10px;padding:14px 12px;background:#0a0a0a;overflow-x:auto;position:sticky;top:58px;z-index:998}
+.tab{padding:10px 20px;border-radius:25px;border:1.5px solid rgba(255,195,0,0.4);background:transparent;color:#FFC300;font-weight:600;cursor:pointer;white-space:nowrap}
+.tab.active{background:#FFC300;color:#000}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.card{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,0.22);border-radius:18px;padding:16px 12px;text-align:center;transition:0.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 20px rgba(255,195,0,0.3)}
+.price{font-size:30px;font-weight:900;color:#FFC300;margin:6px 0}
+.buy{background:#FFC300;color:#000;border:none;width:100%;padding:11px;border-radius:25px;font-weight:800;cursor:pointer}
+.trust{text-align:center;padding:14px;background:#111;margin:12px;border-radius:12px;border:1px solid #222;font-size:13px;color:#aaa}
+.footer{padding:20px;text-align:center;color:#666;font-size:11px;line-height:1.6;border-top:1px solid #222;margin-top:10px}
+.footer b{color:#888}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:10px"><div class="logo">OJN</div><b>ORATAH JNR</b></div>
+  <button class="copy-btn" onclick="copyTill()">Copy Till 📋</button>
+</div>
+
+<div class="banner">
+  <h1>ORATAH JNR NETWORKS</h1>
+  <p>⚡ Fast • ✅ Reliable • 🔒 Trusted</p>
+</div>
+
+<div class="free-banner">🎉 NEW USERS: 500MB FREE on first purchase! Claim via WhatsApp</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="filterTab(this,'data')">Data</button>
+  <button class="tab" onclick="filterTab(this,'airtime')">Airtime</button>
+  <button class="tab" onclick="filterTab(this,'kplc')">KPLC</button>
+  <button class="tab" onclick="filterTab(this,'bills')">Bills</button>
+</div>
+
+<div class="grid" id="offers">
+  <div class="card"><h3>1GB 1hour</h3><div class="price">19</div><button class="buy" onclick="buy('1GB 1hour - KES 19')">Buy Now</button></div>
+  <div class="card"><h3>2GB Daily</h3><div class="price">50</div><button class="buy" onclick="buy('2GB Daily - KES 50')">Buy Now</button></div>
+  <div class="card"><h3>2Hrs Unlimited</h3><div class="price">35</div><button class="buy" onclick="buy('2Hrs Unlimited - KES 35')">Buy Now</button></div>
+  <div class="card"><h3>1GB 3Days</h3><div class="price">50</div><button class="buy" onclick="buy('1GB 3Days - KES 50')">Buy Now</button></div>
+  <div class="card"><h3>2GB 3Days</h3><div class="price">99</div><button class="buy" onclick="buy('2GB 3Days - KES 99')">Buy Now</button></div>
+  <div class="card"><h3>5GB 7Days</h3><div class="price">250</div><button class="buy" onclick="buy('5GB 7Days - KES 250')">Buy Now</button></div>
+  <div class="card"><h3>10GB 30Days</h3><div class="price">499</div><button class="buy" onclick="buy('10GB 30Days - KES 499')">Buy Now</button></div>
+  <div class="card"><h3>Airtime Any</h3><div class="price">10+</div><button class="buy" onclick="buy('Airtime')">Buy Airtime</button></div>
+</div>
+
+<div class="trust">
+  🔥 <b style="color:#fff">342+</b> buying now • ✅ M-Pesa Till Verified • ⭐ 4.9/5 Trusted by 12k+<br>
+  💬 Instant delivery via WhatsApp after payment
+</div>
+
+<div class="footer">
+  <b>DISCLAIMER:</b><br>
+  Oratah JNR Networks is an independent reseller. We are not affiliated with Safaricom, Airtel or Kenya Power. All bundles are delivered manually via our system after M-Pesa confirmation. Delivery time: 1-10 mins. No refunds after bundle is sent. Prices may change.<br><br>
+  © 2026 ORATAH JNR NETWORKS • Support: WhatsApp 07XX XXX XXX<br>
+  Terms | Privacy | Refund Policy
+</div>
+
+<script>
+const TILL="YOUR_TILL";
+const WHATSAPP="2547XXXXXXXX";
+function copyTill(){
+  navigator.clipboard.writeText(TILL);
+  alert("Till "+TILL+" Copied! Go to M-Pesa -> Lipa na M-Pesa -> Buy Goods -> Enter Till");
+}
+function buy(item){
+  let msg = encodeURIComponent("Hi Oratah JNR, I want "+item+". I have paid to Till "+TILL+". My number is: ");
+  window.open("https://wa.me/"+WHATSAPP+"?text="+msg, "_blank");
+}
+function filterTab(el,type){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
+  if(type!='data'){alert(type.toUpperCase()+" offers coming soon! Chat on WhatsApp for "+type);}
+}
+</script>
+</body>
+</html>
