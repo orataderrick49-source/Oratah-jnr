@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+W<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ORATAH JNR NETWORKS</title>
+<title><img src="logo.png" alt="Oratah JNR Networks" style="height:55px;"> NETWORKS</title>
 <link rel="manifest" href="manifest.json">
-<style>
+body{ background:#0a0a0a !important; }
+.card{ background:rgba(255,255,255,0.08) !important; backdrop-filter:blur(12px) !important; border:1px solid rgba(255,215,0,0.25) !important; border-radius:16px !important; transition:0.3s !important; }
+.card:hover{ transform:translateY(-6px) !important; box-shadow:0 0 25px rgba(255,215,0,0.4) !important; }
+.header{ position:sticky !important; top:0 !important; z-index:999 !important; backdrop-filter:blur(15px) !important; background:rgba(10,10,10,0.85) !important; }<style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
 body{background:#0a0a0a;color:#fff}
 .top{background:#FFC300;color:#000;text-align:center;padding:25px 10px}
@@ -26,7 +29,10 @@ input,select{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:none
 </style>
 </head>
 <body>
-
+<div class="header" style="display:flex;justify-content:space-between;align-items:center;padding:12px 18px;">
+<img src="logo.png" style="height:42px;"><b style="color:white;">ORATAH JNR</b>
+<button onclick="navigator.clipboard.writeText('YOUR_TILL');alert('Till Copied!')" style="background:gold;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;">Copy Till 📋</button>
+</div>
 <div class="top">
 <h1>ORATAH JNR NETWORKS</h1>
 <p>⚡ Fast • ✅ Reliable • 🔒 Trusted</p>
