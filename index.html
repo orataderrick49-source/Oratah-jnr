@@ -57,7 +57,25 @@ input,select{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:none
 </div>
 </div>
 
-<!-- AIRTIME -->
+<!-- AIRTIME --><!-- LIVE SALES TICKER -->
+<div id="live-ticker" style="background:#111; border:1px solid #facc15; color:#fff; padding:8px 0; overflow:hidden; white-space:nowrap; font-size:13px; border-radius:8px; margin-bottom:12px;">
+  <span id="ticker-text">✅ Kevin - 5GB Bundle - 2 min ago &nbsp;&nbsp; ✅ Mary - KPLC 500 - 7 min ago &nbsp;&nbsp; ✅ Brian - Airtime 200 - 11 min ago</span>
+</div>
+<style>
+@keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+#ticker-text { display:inline-block; animation: scroll 25s linear infinite; }
+</style>
+<script>
+const sales = [
+"✅ Kevin - 5GB Bundle - 2 min ago","✅ Mary - KPLC 500 - 7 min ago","✅ Brian - Airtime 200 - 11 min ago","✅ Faith - 2GB Bundle - 15 min ago","✅ Otieno - DSTV 1050 - 19 min ago","✅ Aisha - 10GB Bundle - 23 min ago","✅ John - Airtime 1000 - 27 min ago","✅ Grace - KPLC 1000 - 32 min ago","✅ Musa - 1GB Bundle - 38 min ago","✅ Linda - Bills 500 - 42 min ago"
+];
+let i=0;
+setInterval(()=>{
+i=(i+1)%sales.length;
+document.getElementById('ticker-text').innerHTML = sales.slice(i,i+3).join(' &nbsp;&nbsp; ') + ' &nbsp;&nbsp; ' + sales.slice(0,1).join('');
+}, 4000);
+</script
+<!-- END TICKER -->
 <!-- AIRTIME CUSTOM AMOUNT -->
 <div id="airtime-section" class="p-4 bg-white rounded-xl shadow-sm border">
   <h3 class="font-bold text-lg mb-3">AIRTIME - Weka Amount Unayotaka</h3>
