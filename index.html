@@ -58,14 +58,59 @@ input,select{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:none
 </div>
 
 <!-- AIRTIME -->
-<div id="airtime" class="sec">
-<div class="grid">
-<div class="card"><h3>Airtime 50</h3><span>50</span><button class="btn" onclick="buy('Airtime KSh 50')">Buy Now</button></div>
-<div class="card"><h3>Airtime 100</h3><span>100</span><button class="btn" onclick="buy('Airtime KSh 100')">Buy Now</button></div>
-<div class="card"><h3>Airtime 200</h3><span>200</span><button class="btn" onclick="buy('Airtime KSh 200')">Buy Now</button></div>
-<div class="card"><h3>Airtime 500</h3><span>500</span><button class="btn" onclick="buy('Airtime KSh 500')">Buy Now</button></div>
+<!-- AIRTIME CUSTOM AMOUNT -->
+<div id="airtime-section" class="p-4 bg-white rounded-xl shadow-sm border">
+  <h3 class="font-bold text-lg mb-3">AIRTIME - Weka Amount Unayotaka</h3>
+
+  <div class="mb-3">
+    <label class="text-sm font-semibold">Network:</label>
+    <select id="airtime-network" class="w-full mt-1 p-3 border rounded-lg">
+      <option value="Safaricom">Safaricom</option>
+      <option value="Airtel">Airtel</option>
+      <option value="Telkom">Telkom</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="text-sm font-semibold">Phone Number:</label>
+    <input id="airtime-phone" type="tel" placeholder="07xx xxx xxx" class="w-full mt-1 p-3 border rounded-lg" />
+  </div>
+
+  <div class="mb-3">
+    <label class="text-sm font-semibold">Amount (Ksh 10 - 5000):</label>
+    <input id="airtime-amount" type="number" min="10" max="5000" placeholder="Eg: 150" class="w-full mt-1 p-3 border-2 border-green-500 rounded-lg font-bold" oninput="updateAirtimeLink()" />
+    <div class="flex gap-2 mt-2">
+      <button onclick="setAirtime(20)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">20</button>
+      <button onclick="setAirtime(50)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">50</button>
+      <button onclick="setAirtime(100)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">100</button>
+      <button onclick="setAirtime(200)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">200</button>
+      <button onclick="setAirtime(500)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">500</button>
+      <button onclick="setAirtime(1000)" class="px-3 py-1 bg-gray-100 rounded-full text-sm">1000</button>
+    </div>
+  </div>
+
+  <a id="airtime-whatsapp" href="#" target="_blank" class="block w-full text-center p-4 bg-green-600 text-white font-bold rounded-xl">
+    CLAIM KWA WHATSAPP - Ksh <span id="airtime-display">0</span>
+  </a>
+  <p class="text-xs text-gray-500 mt-2 text-center">Uta-tuma M-Pesa, tukutumie airtime instantly</p>
 </div>
-</div>
+
+<script>
+function setAirtime(val){
+  document.getElementById('airtime-amount').value = val;
+  updateAirtimeLink();
+}
+function updateAirtimeLink(){
+  let amount = document.getElementById('airtime-amount').value || 0;
+  let phone = document.getElementById('airtime-phone').value || '[Namba]';
+  let net = document.getElementById('airtime-network').value;
+  document.getElementById('airtime-display').innerText = amount;
+  let msg = `Habari Oratah JNR, nataka AIRTIME:%0A- Network: ${net}%0A- Phone: ${phone}%0A- Amount: Ksh ${amount}%0A%0ANiko tayari kutuma M-Pesa.`;
+  // WEKA NAMBARI YAKO HAPA
+  let yourNumber = "2547XXXXXXXX";
+  document.getElementById('airtime-whatsapp').href = `https://wa.me/${yourNumber}?text=${msg}`;
+}
+</script>
 
 <!-- KPLC -->
 <div id="kplc" class="sec">
