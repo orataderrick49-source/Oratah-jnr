@@ -1,26 +1,123 @@
 <!DOCTYPE html>
-<html><head><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Oratah Jnr Networks - 30 Offers</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah Jnr Networks</title>
 <style>
-body{margin:0;background:#0d0d0d;color:#fff;font-family:Arial}
-.header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#121212;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:8px;font-weight:900}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d0d;color:#fff;font-family:Arial,sans-serif}
+.header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#121212;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:14px}
 .logo b{background:#ffcc00;color:#000;padding:8px 12px;border-radius:12px}
 .till{background:#ffcc00;color:#000;border:none;padding:9px 18px;border-radius:22px;font-weight:800}
-.banner{background:#ffcc00;color:#000;text-align:center;padding:18px 0}
-.banner h2{margin:0;font-size:24px;letter-spacing:1px}
-.tabs{display:flex;gap:8px;padding:12px 15px;overflow:auto;position:sticky;top:56px;background:#0d0d0d;z-index:9}
-.tab{white-space:nowrap;padding:10px 18px;border-radius:22px;border:1px solid #444;background:#1c1c1c;color:#ffcc00;font-weight:700}
+.banner{background:#ffcc00;color:#000;text-align:center;padding:18px 10px}
+.banner h2{margin:0;font-size:22px}
+.banner div{font-size:13px;margin-top:4px}
+.tabs{display:flex;gap:8px;padding:12px 15px;overflow:auto;background:#0d0d0d}
+.tab{white-space:nowrap;padding:10px 18px;border-radius:22px;border:1px solid #444;background:#1c1c1c;color:#ffcc00;font-weight:700;cursor:pointer}
 .tab.active{background:#ffcc00;color:#000;border-color:#ffcc00}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px 15px}
-.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:18px;padding:12px;text-align:center;position:relative}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px 20px}
+.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:18px;padding:14px;text-align:center;position:relative}
 .card.hot{border-color:#ffcc00}
-.badge{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#ff4444;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;font-weight:800}
-.card b{font-size:13px;display:block;min-height:32px}
-.price{font-size:28px;color:#ffcc00;font-weight:900;margin:6px 0}
-.price small{font-size:12px;color:#888}
-.buy{background:#ffcc00;color:#000;border:none;width:100%;padding:11px;border-radius:18px;font-weight:800;font-size:14px}
-.trust{background:#151515;border-top:1px solid #222;text-align:center;padding:20px 15px;margin-top:10px;color:#aaa;font-size:13px;line-height:1.8}
-.disclaimer{background:#000;color:#777;text-align:center;padding:18px 12px;font-size:11px;border-top:1px solid #222;line-height:1.6}
+.badge{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#ff4444;color:#fff;font-size:9px;padding:3px 8px;border-radius:10px;font-weight:800}
+.card b{font-size:13px;display:block;min-height:30px}
+.price{font-size:28px;color:#ffcc00;font-weight:900;margin:8px 0}
+.buy{background:#ffcc00;color:#000;border:none;width:100%;padding:12px;border-radius:18px;font-weight:800;font-size:14px;cursor:pointer}
+.trust{background:#151515;border-top:1px solid #222;text-align:center;padding:20px 12px;color:#aaa;font-size:13px;line-height:1.8}
+.disclaimer{background:#000;color:#666;text-align:center;padding:18px 12px;font-size:11px;border-top:1px solid #222;line-height:1.6}
 .hide{display:none}
-.count{color:#888;font-size:12px;padding
+.count{color:#888;font-size:11px;padding:0 15px 8px}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="logo"><b>OJN</b> ORATAH JNR NETWORKS</div>
+<button class="till" onclick="alert('Till: 4100745 Copied!')">Copy Till 📋</button>
+</div>
+
+<div class="banner">
+<h2>ORATAH JNR NETWORKS</h2>
+<div>⚡ Fast • ✅ Reliable • 🔒 Trusted • 24/7</div>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('data',this)">Data (20)</button>
+<button class="tab" onclick="showTab('airtime',this)">Airtime (4)</button>
+<button class="tab" onclick="showTab('kplc',this)">KPLC (3)</button>
+<button class="tab" onclick="showTab('bills',this)">Bills (3)</button>
+</div>
+
+<div class="count" id="count">TOTAL 30 OFFERS - Click Buy</div>
+
+<!-- DATA 20 OFFERS -->
+<div id="data" class="grid">
+<div class="card"><b>1GB 1Hour</b><div class="price">19</div><button class="buy">Buy Now</button></div>
+<div class="card hot"><div class="badge">HOT</div><b>2GB Daily</b><div class="price">50</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>2Hrs Unlimited</b><div class="price">35</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>1GB 3Days</b><div class="price">50</div><button class="buy">Buy</button></div>
+<div class="card"><b>2GB 3Days</b><div class="price">90</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>3GB 3Days</b><div class="price">120</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>1GB 7Days</b><div class="price">99</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>2GB 7Days</b><div class="price">150</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>3GB 7Days</b><div class="price">199</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>5GB 7Days</b><div class="price">250</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>7GB 7Days</b><div class="price">300</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>10GB 7Days</b><div class="price">450</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>2GB 30Days</b><div class="price">199</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>5GB 30Days</b><div class="price">350</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>8GB 30Days</b><div class="price">450</div><button class="buy">Buy Now</button></div>
+<div class="card hot"><div class="badge">BEST</div><b>10GB 30Days</b><div class="price">499</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>15GB 30Days</b><div class="price">750</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>20GB 30Days</b><div class="price">999</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>30GB 30Days</b><div class="price">1499</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>50GB 30Days</b><div class="price">1999</div><button class="buy">Buy Now</button></div>
+</div>
+
+<!-- AIRTIME 4 -->
+<div id="airtime" class="grid hide">
+<div class="card"><b>Safaricom Airtime</b><div class="price">10-5000</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>Airtel Airtime</b><div class="price">10-5000</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>Telkom Airtime</b><div class="price">10-5000</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>Faiba Airtime</b><div class="price">10-5000</div><button class="buy">Buy Now</button></div>
+</div>
+
+<!-- KPLC 3 -->
+<div id="kplc" class="grid hide">
+<div class="card"><b>KPLC Prepaid</b><div class="price">From 100</div><button class="buy">Buy Now</button></div>
+<div class="card"><b>KPLC Postpaid</b><div class="price">From 100</div><button class="buy">Pay Now</button></div>
+<div class="card"><b>KPLC 500 Token</b><div class="price">500</div><button class="buy">Buy Now</button></div>
+</div>
+
+<!-- BILLS 3 -->
+<div id="bills" class="grid hide">
+<div class="card"><b>GOtv / DStv</b><div class="price">Pay</div><button class="buy">Pay Now</button></div>
+<div class="card"><b>Nairobi Water</b><div class="price">Pay</div><button class="buy">Pay Now</button></div>
+<div class="card"><b>NHIF / SHA</b><div class="price">Pay</div><button class="buy">Pay Now</button></div>
+</div>
+
+<div class="trust">
+✅ <b style="color:#fff">1000+ Happy Customers</b> • 🕒 24/7 Instant Delivery • 🔒 M-Pesa Secured<br>
+<b style="color:#ffcc00;font-size:16px">Till Number: 4100745</b> - Oratah Jnr Networks<br>
+📞 WhatsApp: <b style="color:#fff">0700 XXX XXX</b> | 📍 Kitengela<br><br>
+⭐⭐⭐⭐⭐ Rated 5 Star by 1000+ Users
+</div>
+
+<div class="disclaimer">
+<b>Disclaimer:</b> Oratah Jnr Networks is an independent reseller. We are not affiliated with Safaricom, Airtel, or KPLC. All trademarks belong to their owners. Prices may change. Service depends on network availability. By buying you agree to our Terms.<br><br>
+© 2026 Oratah Jnr Networks. All Rights Reserved.
+</div>
+
+<script>
+function showTab(id,btn){
+document.querySelectorAll('.grid').forEach(g=>g.classList.add('hide'));
+document.getElementById(id).classList.remove('hide');
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+btn.classList.add('active');
+document.getElementById('count').innerText = btn.innerText + ' - Tap Buy to Order';
+}
+</script>
+
+</body>
+</html>
