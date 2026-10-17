@@ -1,52 +1,26 @@
-<!<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oratah Jnr Networks</title>
+<!DOCTYPE html>
+<html><head><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah Jnr Networks - 30 Offers</title>
 <style>
-body{background:#0d0d0d;color:white;font-family:Arial;margin:0}
-.header{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;background:#121212}
-.logo{font-weight:bold;display:flex;align-items:center;gap:8px}
-.logo span{background:#ffcc00;color:black;padding:8px 10px;border-radius:12px}
-.till{background:#ffcc00;color:black;padding:8px 15px;border-radius:20px;font-weight:bold;border:none}
-.banner{background:#ffcc00;color:black;text-align:center;padding:15px 0}
-.tabs{display:flex;gap:10px;padding:15px;overflow-x:auto}
-.tab{padding:10px 20px;border-radius:20px;border:1px solid #ffcc00;color:#ffcc00;background:transparent}
-.tab.active{background:#ffcc00;color:black}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:15px}
-.card{background:#1c1c1c;border:1px solid #333;border-radius:20px;padding:15px;text-align:center}
-.card h3{margin:5px 0}
-.price{font-size:32px;color:#ffcc00;font-weight:bold;margin:10px 0}
-.buy{background:#ffcc00;color:black;border:none;padding:12px;width:100%;border-radius:20px;font-weight:bold;font-size:16px}
-</style>
-</head>
-<body>
-<div class="header">
-<div class="logo"><span>OJN</span> ORATAH JNR</div>
-<button class="till" onclick="navigator.clipboard.writeText('YOUR_TILL');alert('Till Copied!')">Copy Till 📋</button>
-</div>
-
-<div class="banner">
-<h2 style="margin:0">ORATAH JNR NETWORKS</h2>
-<div>⚡ Fast • ✅ Reliable • 🔒 Trusted</div>
-</div>
-
-<div class="tabs">
-<button class="tab active">Data</button>
-<button class="tab">Airtime</button>
-<button class="tab">KPLC</button>
-<button class="tab">Bills</button>
-</div>
-
-<div class="grid">
-<div class="card"><h3>1GB 1hour</h3><div class="price">19</div><button class="buy">Buy Now</button></div>
-<div class="card"><h3>2GB Daily</h3><div class="price">50</div><button class="buy">Buy Now</button></div>
-<div class="card"><h3>2hours unlimited</h3><div class="price">35</div><button class="buy">Buy Now</button></div>
-<div class="card"><h3>1GB 3Days</h3><div class="price">50</div><button class="buy">Buy</button></div>
-</div>
-
-<script>
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')})
-</script>
-</body>
-</html>
+body{margin:0;background:#0d0d0d;color:#fff;font-family:Arial}
+.header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#121212;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900}
+.logo b{background:#ffcc00;color:#000;padding:8px 12px;border-radius:12px}
+.till{background:#ffcc00;color:#000;border:none;padding:9px 18px;border-radius:22px;font-weight:800}
+.banner{background:#ffcc00;color:#000;text-align:center;padding:18px 0}
+.banner h2{margin:0;font-size:24px;letter-spacing:1px}
+.tabs{display:flex;gap:8px;padding:12px 15px;overflow:auto;position:sticky;top:56px;background:#0d0d0d;z-index:9}
+.tab{white-space:nowrap;padding:10px 18px;border-radius:22px;border:1px solid #444;background:#1c1c1c;color:#ffcc00;font-weight:700}
+.tab.active{background:#ffcc00;color:#000;border-color:#ffcc00}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px 15px}
+.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:18px;padding:12px;text-align:center;position:relative}
+.card.hot{border-color:#ffcc00}
+.badge{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#ff4444;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;font-weight:800}
+.card b{font-size:13px;display:block;min-height:32px}
+.price{font-size:28px;color:#ffcc00;font-weight:900;margin:6px 0}
+.price small{font-size:12px;color:#888}
+.buy{background:#ffcc00;color:#000;border:none;width:100%;padding:11px;border-radius:18px;font-weight:800;font-size:14px}
+.trust{background:#151515;border-top:1px solid #222;text-align:center;padding:20px 15px;margin-top:10px;color:#aaa;font-size:13px;line-height:1.8}
+.disclaimer{background:#000;color:#777;text-align:center;padding:18px 12px;font-size:11px;border-top:1px solid #222;line-height:1.6}
+.hide{display:none}
+.count{color:#888;font-size:12px;padding
