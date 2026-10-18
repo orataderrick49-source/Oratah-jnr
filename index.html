@@ -42,8 +42,8 @@ body{background:#080808;color:#fff}
 <div class="tabs">
   <button class="tab active" onclick="filterTab(this,'data')" data-filter="data">Data</button>
   <button class="tab" onclick="filterTab(this,'airtime')" data-filter="airtime">Airtime</button>
-  <button class="tab" onclick="filterTab(this,'kplc')" data-filter="kplc">KPLC</button>
-  <button class="tab" onclick="filterTab(this,'bills')" data-filter="bills">Bills</button>
+  <button class="tab" onclick="filterTab(this,'kplc')" data-filter="kplc" data-filter="kplc">KPLC</button>
+  <button class="tab" onclick="filterTab(this,'bills')" data-filter="bills" data-filter="bills">Bills</button>
 </div>
 
 <div class="grid" id="offers">
@@ -88,15 +88,21 @@ function filterTab(el,type){
 </script>
 
 <script>
+
 function showCat(cat,el){
- document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+ var tabs=document.querySelectorAll('.tab');
+ for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
  if(el) el.classList.add('active');
- document.querySelectorAll('.card').forEach(c=>{
-   let cc=c.getAttribute('data-cat')||'data';
-   if(cc===cat) c.style.display=''; else c.style.display='none';
- });
+ var cards=document.querySelectorAll('.card');
+ for(var j=0;j<cards.length;j++){
+   var c=cards[j].getAttribute('data-cat')||'data';
+   if(c===cat) cards[j].style.display='';
+   else cards[j].style.display='none';
+ }
  localStorage.setItem('lastCat',cat);
 }
+
+
 let last=localStorage.getItem('lastCat')||'data';
 let btn=document.querySelector(`.tab[data-filter="${last}"]`);
 if(btn) showCat(last,btn);
