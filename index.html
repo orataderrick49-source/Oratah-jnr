@@ -113,5 +113,27 @@ alert('✅ SUCCESS!\n\n'+name+' - KES '+price+'\nKwa: '+phone+'\nWallet Balance:
 render();
 updateWalletUI();
 </script>
+<script src="fix-popup2.js"></script>
 </body>
 </html>
+<!-- POPUP 2 - WALLET ROYAL BLUE GOLD -->
+<style>
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:9999;justify-content:center;align-items:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal-popup{background:linear-gradient(165deg,#1a2a9a,#0d1848);border:1.5px solid #f9e79f;border-radius:24px;width:100%;max-width:380px;box-shadow:0 20px 60px #000,0 0 50px rgba(212,175,55,.3);position:relative;animation:pop .3s}
+@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-head{padding:22px 24px 0;display:flex;gap:12px;align-items:center}
+.modal-icon{width:48px;height:48px;background:linear-gradient(135deg,#f9e79f,#d4af37);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.modal-title{font-size:20px;font-weight:900;color:#f9e79f}
+.modal-body{padding:18px 22px}
+.label{font-size:11px;color:#8bb0ff;font-weight:700;margin-bottom:5px}
+.balance-box{background:rgba(0,0,0,.3);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:14px;margin-bottom:14px}
+.balance-amount{font-size:30px;font-weight:900;color:#f9e79f}
+.deduct-box{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.35);border-radius:12px;padding:12px;display:flex;justify-content:space-between}
+.deduct-amount{font-weight:900;color:#fff}
+.input-box{width:100%;padding:13px;background:rgba(0,0,0,.4);border:1px solid rgba(212,175,55,.25);border-radius:12px;color:#fff;margin-top:12px}
+.btn-deduct{width:100%;padding:15px;background:linear-gradient(135deg,#f9e79f,#d4af37);color:#0d1840;border:none;border-radius:14px;font-weight:900;font-size:16px;margin-top:16px;cursor:pointer}
+.close-x{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);width:30px;height:30px;border-radius:100px;color:#fff;cursor:pointer}
+.remaining{margin-top:10px;padding:8px;background:rgba(212,175,55,.12);border-radius:8px;font-size:12px;color:#f9e79f;text-align:center}
+</style>
+<div id="modal" class="modal-overlay" onclick="if(event.target==this)closeModal()"><div class="modal-popup"><button class="close-x" onclick="closeModal()">✕</button><div class="modal-head"><div class="modal-icon">💼</div><div class="modal-title">My Wallet</div></div><div class="modal-body"><div class="label">Available Balance</div><div class="balance-box"><div class="balance-amount" id="mBal">KSH 0.00</div></div><div class="label">Amount to Deduct</div><div class="deduct-box"><span id="mItem" style="color:#cbd5ff;font-size:13px">Bundle</span><span class="deduct-amount" id="mAmt">KSH 0</span></div><input id="mPhone" class="input-box" placeholder="Phone: 07XXXXXXXX"><div class="remaining" id="mRem">Remaining: KSH 0.00</div><button class="btn-deduct" id="mBtn" onclick="confirmPay()">Deduct from Wallet</button><div style="margin-top:10px;text-align:center;font-size:11px;color:#8bb0ff">Transaction fee: KSH 0.00 • <span style="color:#4ade80">Instant</span></div></div></div></div>
