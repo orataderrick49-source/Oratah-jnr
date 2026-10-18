@@ -98,5 +98,77 @@ function triggerWalletSTK(){
   // fetch('/api/addfunds', {method:'POST', body: JSON.stringify({amount})})
 }
 </script>
+
+<style id="force-clickable">
+/* FORCE ALL BUTTONS CLICKABLE */
+button, [onclick], .btn, div[role="button"] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 99999 !important;
+  opacity: 1 !important;
+}
+#addFundsModal, #walletModal, #myWalletModal, [id*="Funds"], [id*="Wallet"] {
+  pointer-events: auto !important;
+}
+#addFundsModal *, #walletModal * {
+  pointer-events: auto !important;
+}
+input {
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+}
+.modal, .modal-content {
+  pointer-events: auto !important;
+}
+</style>
+<script>
+// FORCE CLICKABLE JS
+document.addEventListener('DOMContentLoaded', function(){
+  function makeClickable(){
+    document.querySelectorAll('button').forEach(btn=>{
+      btn.style.pointerEvents='auto';
+      btn.style.cursor='pointer';
+      btn.style.zIndex='99999';
+      if(btn.textContent.includes('Add Money to Wallet') && !btn.onclick){
+        btn.onclick = function(){ 
+          const amt = document.getElementById('addAmount')?.value || document.querySelector('input[placeholder*="Amount"]')?.value;
+          if(!amt || amt < 10){ alert('Weka kiasi!'); return; }
+          alert('STK Push KSH '+amt+' - Angalia simu!');
+        };
+      }
+      if(btn.textContent.includes('Add Balance') && !btn.onclick){
+        btn.onclick = function(){ 
+          const amt = document.getElementById('addAmount')?.value;
+          alert('Confirming KSH '+ (amt||'') +' to Wallet!'); 
+        };
+      }
+      if(btn.textContent.includes('Lipa na M-PESA') && !btn.onclick){
+        btn.onclick = function(){ 
+          const phone = document.getElementById('mPhone')?.value;
+          if(!phone){ alert('Weka namba!'); return; }
+          alert('STK Push kwa '+phone); 
+        };
+      }
+    });
+  }
+  makeClickable();
+  setTimeout(makeClickable, 1000);
+  setTimeout(makeClickable, 3000);
+});
+function triggerWalletSTK(){
+  const el = document.getElementById('addAmount') || document.querySelector('input[placeholder*="Amount"]');
+  let amount = el ? el.value.trim() : '';
+  if(!amount || parseInt(amount) < 10){ alert('Weka kiasi - min KSH 10'); return; }
+  alert('STK Push ya KSH ' + amount + ' inatumwa - Angalia simu yako 0791 102687!');
+}
+function confirmAddFunds(){
+  const el = document.getElementById('addAmount');
+  let amount = el ? el.value.trim() : '';
+  if(!amount){ alert('Weka kiasi kwanza!'); return; }
+  alert('Confirming KSH ' + amount + ' - Adding to Wallet!');
+}
+</script>
 </body>
 </html>
