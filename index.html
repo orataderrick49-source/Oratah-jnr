@@ -1,8 +1,96 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ORATAH JNR GOLD</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a0a;color:#fff;font-family:system-ui;padding:16px}.header{display:flex;justify-content:space-between;padding:12px 16px;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border:1px solid #d4af37;border-radius:14px;margin-bottom:16px}.logo{font-weight:900;color:#d4af37;font-size:20px}.logo span{color:#fff}.tabs{display:flex;gap:8px;margin-bottom:16px;overflow-x:auto}.tab{padding:10px 18px;border-radius:20px;border:1px solid #333;background:#1a1a1a;color:#aaa;font-weight:600;cursor:pointer}.tab.active{background:linear-gradient(135deg,#d4af37,#b8960c);color:#000;border-color:#d4af37}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.card{background:linear-gradient(145deg,#1e1e1e,#151515);border:1px solid #d4af3750;border-radius:14px;padding:14px;text-align:center}.card h3{font-size:13px;color:#f5e6a0;margin-bottom:6px}.price{color:#d4af37;font-weight:800;font-size:18px;margin:6px 0}.buy{width:100%;padding:8px;border-radius:8px;border:none;background:linear-gradient(135deg,#d4af37,#b8960c);color:#000;font-weight:700;cursor:pointer}.copy{margin-top:20px;text-align:center;padding:12px;background:#111;border:1px dashed #d4af37;border-radius:10px;color:#aaa;font-size:13px}.copy b{color:#d4af37}</style></head><body><div class='header'><div class='logo'>OJN <span>ORATAH JNR</span></div><div style='color:#d4af37;font-size:12px'>GOLD EDITION</div></div><div class='tabs'><button class='tab active' data-filter='data' onclick="showCat('data',this)">Data</button><button class='tab' data-filter='airtime' onclick="showCat('airtime',this)">Airtime</button><button class='tab' data-filter='kplc' onclick="showCat('kplc',this)">KPLC</button><button class='tab' data-filter='bills' onclick="showCat('bills',this)">Bills</button></div><div class='grid' id='grid'></div><div class='copy'>Till: <b>YOUR TILL</b> | WhatsApp 0727025819</div><script>
-offers=[['1GB','99','data'],['2GB','199','data'],['3GB','299','data'],['5GB','499','data'],['6GB','599','data'],['8GB','799','data'],['10GB','999','data'],['12GB','1199','data'],['15GB','1499','data'],['20GB','1999','data'],['25GB','2499','data'],['30GB','2999','data'],['40GB','3999','data'],['50GB','4999','data'],['60GB','5999','data'],['80GB','7999','data'],['100GB','9999','data'],['150GB','14999','data'],['200GB','19999','data'],['Unlimited','29999','data'],['Airtime 5','5','airtime'],['Airtime 10','10','airtime'],['Airtime 15','15','airtime'],['Airtime 20','20','airtime'],['Airtime 30','30','airtime'],['Airtime 50','50','airtime'],['Airtime 99','99','airtime'],['Airtime 100','100','airtime'],['Airtime 150','150','airtime'],['Airtime 200','200','airtime'],['Airtime 250','250','airtime'],['Airtime 300','300','airtime'],['Airtime 500','500','airtime'],['Airtime 750','750','airtime'],['Airtime 1000','1000','airtime'],['Airtime 1500','1500','airtime'],['Airtime 2000','2000','airtime'],['Airtime 3000','3000','airtime'],['Airtime 5000','5000','airtime'],['Airtime 10000','10000','airtime'],['KPLC 100','100','kplc'],['KPLC 150','150','kplc'],['KPLC 200','200','kplc'],['KPLC 250','250','kplc'],['KPLC 300','300','kplc'],['KPLC 400','400','kplc'],['KPLC 500','500','kplc'],['KPLC 600','600','kplc'],['KPLC 750','750','kplc'],['KPLC 800','800','kplc'],['KPLC 1000','1000','kplc'],['KPLC 1200','1200','kplc'],['KPLC 1500','1500','kplc'],['KPLC 2000','2000','kplc'],['KPLC 2500','2500','kplc'],['KPLC 3000','3000','kplc'],['KPLC 4000','4000','kplc'],['KPLC 5000','5000','kplc'],['KPLC 7000','7000','kplc'],['KPLC 10000','10000','kplc'],['DSTV Padi 650','650','bills'],['DSTV Lite 1500','1500','bills'],['DSTV Compact 3800','3800','bills'],['GOTV Lite 199','199','bills'],['GOTV Value 499','499','bills'],['GOTV Plus 999','999','bills'],['StarTimes Nyota 299','299','bills'],['StarTimes Basic 599','599','bills'],['Nairobi Water 500','500','bills'],['Nairobi Water 1000','1000','bills'],['Zuku 2999','2999','bills'],['Faiba 2500','2500','bills'],['NHIF 500','500','bills'],['NSSF 1080','1080','bills'],['Showmax 450','450','bills'],['Netflix 1200','1200','bills'],['WiFi 1Hr 30','30','bills'],['WiFi Day 100','100','bills'],['Rent 5000','5000','bills'],['School Fees 2000','2000','bills']];
-grid=document.getElementById('grid');
-offers.forEach(o=>{let d=document.createElement('div');d.className='card';d.setAttribute('data-cat',o[2]);let b=o[2]=='data'?'Buy Now':o[2]=='airtime'?'Buy Airtime':o[2]=='kplc'?'Pay KPLC':'Pay Bill';d.innerHTML=`<h3>${o[0]}</h3><div class=price>KES ${o[1]}</div><button class=buy onclick="buyOffer('${o[0]} - KES ${o[1]}')">${b}</button>`;grid.appendChild(d);});
-function showCat(c,e){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(e)e.classList.add('active');document.querySelectorAll('.card').forEach(x=>{x.style.display=x.getAttribute('data-cat')===c?'':'none'});localStorage.setItem('lastCat',c);}
-function buyOffer(o){let n=prompt('Enter Number for '+o+':');if(!n)return;let m=encodeURIComponent('Hello ORATAH JNR, I want '+o+' for '+n);window.open('https://wa.me/254727025819?text='+m,'_blank');}
-let last=localStorage.getItem('lastCat')||'data';let btn=document.querySelector(`.tab[data-filter="${last}"]`);if(btn)showCat(last,btn);
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORATAH JNR NETWORKS - Fast Reliable Data</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#080808;color:#fff}
+.header{position:sticky;top:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(10,10,10,0.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,195,0,0.2)}
+.logo{width:42px;height:42px;background:#FFC300;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:20px}
+.copy-btn{background:#FFC300;border:none;padding:9px 16px;border-radius:25px;font-weight:800;cursor:pointer}
+.banner{background:linear-gradient(135deg,#FFC300,#FFD60A);color:#000;padding:22px 16px;text-align:center}
+.banner h1{font-size:26px;font-weight:900}
+.free-banner{background:#111;border:1px dashed #FFC300;margin:12px;border-radius:12px;padding:12px;text-align:center;color:#FFC300;font-weight:700}
+.tabs{display:flex;gap:10px;padding:14px 12px;background:#0a0a0a;overflow-x:auto;position:sticky;top:58px;z-index:998}
+.tab{padding:10px 20px;border-radius:25px;border:1.5px solid rgba(255,195,0,0.4);background:transparent;color:#FFC300;font-weight:600;cursor:pointer;white-space:nowrap}
+.tab.active{background:#FFC300;color:#000}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.card{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,0.22);border-radius:18px;padding:16px 12px;text-align:center;transition:0.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 20px rgba(255,195,0,0.3)}
+.price{font-size:30px;font-weight:900;color:#FFC300;margin:6px 0}
+.buy{background:#FFC300;color:#000;border:none;width:100%;padding:11px;border-radius:25px;font-weight:800;cursor:pointer}
+.trust{text-align:center;padding:14px;background:#111;margin:12px;border-radius:12px;border:1px solid #222;font-size:13px;color:#aaa}
+.footer{padding:20px;text-align:center;color:#666;font-size:11px;line-height:1.6;border-top:1px solid #222;margin-top:10px}
+.footer b{color:#888}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:10px"><div class="logo">OJN</div><b>ORATAH JNR</b></div>
+  <button class="copy-btn" onclick="copyTill()">Copy Till 📋</button>
+</div>
+
+<div class="banner">
+  <h1>ORATAH JNR NETWORKS</h1>
+  <p>⚡ Fast • ✅ Reliable • 🔒 Trusted</p>
+</div>
+
+<div class="free-banner">🎉 NEW USERS: 500MB FREE on first purchase! Claim via WhatsApp</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="filterTab(this,'data')" data-filter="data" data-filter="data">Data</button>
+  <button class="tab" onclick="filterTab(this,'airtime')" data-filter="airtime" data-filter="airtime">Airtime</button>
+  <button class="tab" onclick="filterTab(this,'kplc')" data-filter="kplc" data-filter="kplc">KPLC</button>
+  <button class="tab" onclick="filterTab(this,'bills')" data-filter="bills" data-filter="bills">Bills</button>
+</div>
+
+<div class="grid" id="offers">
+  <div class="card" data-cat="data"><h3>1GB 1hour</h3><div class="price">19</div><button class="buy" onclick="buy('1GB 1hour - KES 19')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>2GB Daily</h3><div class="price">50</div><button class="buy" onclick="buy('2GB Daily - KES 50')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>2Hrs Unlimited</h3><div class="price">35</div><button class="buy" onclick="buy('2Hrs Unlimited - KES 35')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>1GB 3Days</h3><div class="price">50</div><button class="buy" onclick="buy('1GB 3Days - KES 50')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>2GB 3Days</h3><div class="price">99</div><button class="buy" onclick="buy('2GB 3Days - KES 99')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>5GB 7Days</h3><div class="price">250</div><button class="buy" onclick="buy('5GB 7Days - KES 250')">Buy Now</button></div>
+  <div class="card" data-cat="data"><h3>10GB 30Days</h3><div class="price">499</div><button class="buy" onclick="buy('10GB 30Days - KES 499')">Buy Now</button></div>
+  <div class="card" data-cat="airtime"><h3>Airtime Any</h3><div class="price">10+</div><button class="buy" onclick="buy('Airtime')">Buy Airtime</button></div>
+</div>
+
+<div class="trust">
+  🔥 <b style="color:#fff">342+</b> buying now • ✅ M-Pesa Till Verified • ⭐ 4.9/5 Trusted by 12k+<br>
+  💬 Instant delivery via WhatsApp after payment
+</div>
+
+<div class="footer">
+  <b>DISCLAIMER:</b><br>
+  Oratah JNR Networks is an independent reseller. We are not affiliated with Safaricom, Airtel or Kenya Power. All bundles are delivered manually via our system after M-Pesa confirmation. Delivery time: 1-10 mins. No refunds after bundle is sent. Prices may change.<br><br>
+  © 2026 ORATAH JNR NETWORKS • Support: WhatsApp 07XX XXX XXX<br>
+  Terms | Privacy | Refund Policy
+</div>
+
+
+<script>
+function showCat(c,e){var t=document.querySelectorAll(".tab");for(var i=0;i<t.length;i++)t[i].classList.remove("active");if(e)e.classList.add("active");var d=document.querySelectorAll(".card");for(var j=0;j<d.length;j++){var cc=d[j].getAttribute("data-cat")||"data";d[j].style.display=(cc===c)?"":"none";}localStorage.setItem("lastCat",c);}
+function buyOffer(o){var n=prompt("Enter Number for "+o+":");if(!n)return;var m=encodeURIComponent("Hello ORATAH JNR, I want "+o+" for "+n);window.open("https://wa.me/254727025819?text="+m,"_blank");}
+function buy(o){buyOffer(o);}
+var last=localStorage.getItem("lastCat")||"data";var b=document.querySelector(".tab[data-filter=\""+last+"\"]")||document.querySelector(".tab");if(b)showCat(last,b);
+</script>
+<script>
+function showCat(cat,el){
+ var tabs=document.querySelectorAll('.tab');
+ for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+ if(el) el.classList.add('active');
+ var cards=document.querySelectorAll('.card');
+ for(var j=0;j<cards.length;j++){
+  var c=cards[j].getAttribute('data-cat')||'data';
+  cards[j].style.display=(c===cat)?'':'none';
+ }
+ localStorage.setItem('lastCat',cat);
+}
+var last=localStorage.getItem('lastCat')||'data';
+var b=document.querySelector('.tab[data-filter="'+last+'"]')||document.querySelector('.tab');
+if(b) showCat(last,b);
+</script>
+</body>
+</html>
