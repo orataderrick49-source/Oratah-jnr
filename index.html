@@ -51,7 +51,7 @@ body{background:#060a1a;color:#e0e7ff;min-height:100vh;padding:0 0 30px}
 <div id="modal" class="modal-overlay" onclick="if(event.target==this)closeModal()"><div class="modal-popup"><button class="close-x" onclick="closeModal()">✕</button><div class="modal-head"><div class="modal-icon">💼</div><div class="modal-title">My Wallet</div></div><div class="modal-body"><div class="mpesa-instruct" id="mpesaInst">📱 📱 Lipa KES 0 kwa 0791 102687</div><div class="label">Available Balance</div><div class="balance-box"><div class="balance-amount" id="mBal">KSH 0.00</div></div><div class="label">Amount to Deduct</div><div class="deduct-box"><span id="mItem" style="color:#cbd5ff;font-size:13px">Bundle</span><span class="deduct-amount" id="mAmt">KSH 0</span></div><input id="mPhone" class="input-box" placeholder="Your Phone: 07XXXXXXXX"><button  id="mpesaBtn" onclick="triggerSTK()" class="mpesa-pay-btn" style="width:100%;background:#00A651;color:white;padding:14px;border-radius:12px;font-weight:bold;font-size:16px;border:none;cursor:pointer;margin-bottom:12px;" onclick="triggerSTK()" style="cursor:pointer;pointer-events:auto;z-index:999;">
 📱 Lipa na M-PESA - 0791 102687
 </button><button class="btn-deduct" id="mBtn" onclick="confirmPay()">Confirm Payment - Deliver Now</button><div style="margin-top:12px;text-align:center;font-size:11px;color:#8bb0ff">Real M-PESA • 0791 102687 • Instant</div></div></div></div>
-<div id="modalAdd" class="modal-overlay" onclick="if(event.target==this)closeAdd()"><div class="modal-popup"><button class="close-x" onclick="closeAdd()">✕</button><div class="modal-head"><div class="modal-icon">➕</div><div class="modal-title">Add Funds</div></div><div class="modal-body"><div class="mpesa-instruct">📱 Send Money to 0791 102687</div><input id="addAmt" class="input-box" type="number" placeholder="Amount you sent"><button  id="mpesaBtn" onclick="triggerSTK()" class="mpesa-pay-btn" style="width:100%;background:#00A651;color:white;padding:14px;border-radius:12px;font-weight:bold;font-size:16px;border:none;cursor:pointer;margin-bottom:12px;" onclick="triggerSTK()" style="cursor:pointer;pointer-events:auto;z-index:999;">
+<div id="modalAdd" class="modal-overlay" onclick="if(event.target==this)closeAdd()"><div class="modal-popup"><button class="close-x" onclick="closeAdd()">✕</button><div class="modal-head"><div class="modal-icon">➕</div><div class="modal-title">Add Funds</div></div><div class="modal-body"><div class="mpesa-instruct">📱 Add Money to Wallet</div><input id="addAmt" class="input-box" type="number" placeholder="Amount to Add"><button  id="mpesaBtn" onclick="triggerSTK()" class="mpesa-pay-btn" style="width:100%;background:#00A651;color:white;padding:14px;border-radius:12px;font-weight:bold;font-size:16px;border:none;cursor:pointer;margin-bottom:12px;" onclick="triggerSTK()" style="cursor:pointer;pointer-events:auto;z-index:999;">
 📱 Lipa na M-PESA - 0791 102687
 </button><button class="btn-deduct" onclick="doAdd()">Confirm Payment - Add Balance</button></div></div></div>
 <script>
@@ -92,6 +92,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(b.textContent.includes('Lipa')){ b.style.pointerEvents='auto'; b.style.cursor='pointer'; b.style.zIndex='999'; if(!b.getAttribute('onclick')) b.setAttribute('onclick','triggerSTK()'); }
   });
 });
+</script>
+
+<script>
+function triggerWalletSTK(){
+  const amtInput = document.querySelector('input[placeholder*="Amount to Add"], input[placeholder*="Amount you sent"]');
+  let amount = amtInput ? amtInput.value.trim() : '';
+  if(!amount || parseInt(amount) < 10){ alert('Weka kiasi cha kuongeza - min KSH 10'); return; }
+  alert('STK Push ya KSH ' + amount + ' kwa Wallet - Angalia simu yako!');
+  // fetch('/api/addfunds', {method:'POST', body: JSON.stringify({amount})})
+}
 </script>
 </body>
 </html>
