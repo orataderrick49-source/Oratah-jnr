@@ -40,10 +40,10 @@ body{background:#080808;color:#fff}
 <div class="free-banner">🎉 NEW USERS: 500MB FREE on first purchase! Claim via WhatsApp</div>
 
 <div class="tabs">
-  <button class="tab active" onclick="filterTab(this,'data')" data-filter="data">Data</button>
-  <button class="tab" onclick="filterTab(this,'airtime')" data-filter="airtime">Airtime</button>
-  <button class="tab" onclick="filterTab(this,'kplc')" data-filter="kplc" data-filter="kplc">KPLC</button>
-  <button class="tab" onclick="filterTab(this,'bills')" data-filter="bills" data-filter="bills">Bills</button>
+  <button class="tab active" onclick="filterTab(this,'data')" data-filter="data" data-filter="data">Data</button>
+  <button class="tab" onclick="filterTab(this,'airtime')" data-filter="airtime" data-filter="airtime">Airtime</button>
+  <button class="tab" onclick="filterTab(this,'kplc')" data-filter="kplc" data-filter="kplc" data-filter="kplc">KPLC</button>
+  <button class="tab" onclick="filterTab(this,'bills')" data-filter="bills" data-filter="bills" data-filter="bills">Bills</button>
 </div>
 
 <div class="grid" id="offers">
@@ -69,43 +69,12 @@ body{background:#080808;color:#fff}
   Terms | Privacy | Refund Policy
 </div>
 
-<script>
-const TILL="YOUR_TILL";
-const WHATSAPP="2547XXXXXXXX";
-function copyTill(){
-  navigator.clipboard.writeText(TILL);
-  alert("Till "+TILL+" Copied! Go to M-Pesa -> Lipa na M-Pesa -> Buy Goods -> Enter Till");
-}
-function buy(item){
-  let msg = encodeURIComponent("Hi Oratah JNR, I want "+item+". I have paid to Till "+TILL+". My number is: ");
-  window.open("https://wa.me/"+WHATSAPP+"?text="+msg, "_blank");
-}
-function filterTab(el,type){
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-  el.classList.add("active");
-  if(type!='data'){alert(type.toUpperCase()+" offers coming soon! Chat on WhatsApp for "+type);}
-}
-</script>
 
 <script>
-
-function showCat(cat,el){
- var tabs=document.querySelectorAll('.tab');
- for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
- if(el) el.classList.add('active');
- var cards=document.querySelectorAll('.card');
- for(var j=0;j<cards.length;j++){
-   var c=cards[j].getAttribute('data-cat')||'data';
-   if(c===cat) cards[j].style.display='';
-   else cards[j].style.display='none';
- }
- localStorage.setItem('lastCat',cat);
-}
-
-
-let last=localStorage.getItem('lastCat')||'data';
-let btn=document.querySelector(`.tab[data-filter="${last}"]`);
-if(btn) showCat(last,btn);
+function showCat(c,e){var t=document.querySelectorAll(".tab");for(var i=0;i<t.length;i++)t[i].classList.remove("active");if(e)e.classList.add("active");var d=document.querySelectorAll(".card");for(var j=0;j<d.length;j++){var cc=d[j].getAttribute("data-cat")||"data";d[j].style.display=(cc===c)?"":"none";}localStorage.setItem("lastCat",c);}
+function buyOffer(o){var n=prompt("Enter Number for "+o+":");if(!n)return;var m=encodeURIComponent("Hello ORATAH JNR, I want "+o+" for "+n);window.open("https://wa.me/254727025819?text="+m,"_blank");}
+function buy(o){buyOffer(o);}
+var last=localStorage.getItem("lastCat")||"data";var b=document.querySelector(".tab[data-filter=\""+last+"\"]")||document.querySelector(".tab");if(b)showCat(last,b);
 </script>
 </body>
 </html>
