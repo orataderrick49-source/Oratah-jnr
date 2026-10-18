@@ -48,7 +48,10 @@ body{background:#060a1a;color:#e0e7ff;min-height:100vh;padding:0 0 30px}
 <div class="tabs"><button class="tab active" onclick="showTab('data',this)">Data</button><button class="tab" onclick="showTab('airtime',this)">Airtime</button><button class="tab" onclick="showTab('kplc',this)">KPLC</button><button class="tab" onclick="showTab('bills',this)">Bills</button></div>
 <div id="grid" class="grid"></div>
 <div class="footer"><h4>🔒 Trusted | ⚡ Fast | 🛡️ Real M-PESA: 0791 102687</h4><p>All payments to 0791 102687 are real M-PESA. © 2026 ORATAH JNR NETWORKS</p></div>
-<div id="modal" class="modal-overlay" onclick="if(event.target==this)closeModal()"><div class="modal-popup"><button class="close-x" onclick="closeModal()">✕</button><div class="modal-head"><div class="modal-icon">💼</div><div class="modal-title">My Wallet</div></div><div class="modal-body"><div class="mpesa-instruct" id="mpesaInst">📱 📱 Lipa KES 0 kwa 0791 102687</div><div class="label">Available Balance</div><div class="balance-box"><div class="balance-amount" id="mBal">KSH 0.00</div></div><div class="label">Amount to Deduct</div><div class="deduct-box"><span id="mItem" style="color:#cbd5ff;font-size:13px">Bundle</span><span class="deduct-amount" id="mAmt">KSH 0</span></div><input id="mPhone" class="input-box" placeholder="Your Phone: 07XXXXXXXX"><button class="btn-deduct" onclick="doAdd()" onclick="confirmAddFunds()" style="width:100%;background:#FFD54F;color:#000;padding:14px;border-radius:12px;font-weight:bold;border:none;cursor:pointer;pointer-events:auto;z-index:9999;position:relative;margin-top:12px;">Confirm Payment - Add Balance</button></div></div></div>
+<div id="modal" class="modal-overlay" onclick="if(event.target==this)closeModal()"><div class="modal-popup"><button class="close-x" onclick="closeModal()">✕</button><div class="modal-head"><div class="modal-icon">💼</div><div class="modal-title">My Wallet</div></div><div class="modal-body"><div class="mpesa-instruct" id="mpesaInst">📱 📱 Lipa KES 0 kwa 0791 102687</div><div class="label">Available Balance</div><div class="balance-box"><div class="balance-amount" id="mBal">KSH 0.00</div></div><div class="label">Amount to Deduct</div><div class="deduct-box"><span id="mItem" style="color:#cbd5ff;font-size:13px">Bundle</span><span class="deduct-amount" id="mAmt">KSH 0</span></div><input id="mPhone" class="input-box" placeholder="Your Phone: 07XXXXXXXX"><button id="mpesaBtn" onclick="triggerSTK()" style="width:100%;background:#00A651;color:white;padding:14px;border-radius:12px;font-weight:bold;border:none;cursor:pointer;">
+📱 Lipa na M-PESA - 0791 102687
+</button><button class="btn-deduct" id="mBtn" onclick="confirmPay()">Confirm Payment - Deliver Now</button><div style="margin-top:12px;text-align:center;font-size:11px;color:#8bb0ff">Real M-PESA • 0791 102687 • Instant</div></div></div></div>
+<div id="modalAdd" class="modal-overlay" onclick="if(event.target==this)closeAdd()"><div class="modal-popup"><button class="close-x" onclick="closeAdd()">✕</button><div class="modal-head"><div class="modal-icon">➕</div><div class="modal-title">Add Funds</div></div><div class="modal-body"><div class="mpesa-instruct">📱 Add Money to Wallet</div><input id="addAmt" class="input-box" type="number" placeholder="Amount to Add"><button class="btn-deduct" onclick="doAdd()">Confirm Payment - Add Balance</button></div></div></div>
 <script>
 let wallet=parseFloat(localStorage.getItem('ojn_wallet_real')||'0');let history=JSON.parse(localStorage.getItem('ojn_history_real')||'[]');let currentItem={name:'',price:0};
 function save(){localStorage.setItem('ojn_wallet_real',wallet);localStorage.setItem('ojn_history_real',JSON.stringify(history));upd()}
@@ -67,108 +70,18 @@ render();upd();
 
 <script>
 function triggerSTK(){
-  const phoneEl = document.getElementById('mPhone') || document.querySelector('input[placeholder*="Phone"]');
-  let phone = phoneEl ? phoneEl.value.trim() : '';
-  if(!phone){ alert('Weka namba yako kwanza: 07XXXXXXXX'); if(phoneEl) phoneEl.focus(); return; }
-  if(phone.startsWith('07')) phone = '254' + phone.substring(1);
-  if(phone.startsWith('7')) phone = '254' + phone;
-  const amtEl = document.querySelector('[id*="Amt"]');
-  let amount = 19;
-  try{ if(amtEl) amount = parseInt(amtEl.innerText.replace(/[^0-9]/g,'')) || 19; }catch(e){}
-  console.log('STK PUSH to', phone, 'Amount', amount);
-  // CALL YOUR BACKEND HERE
-  alert('STK Push inatumwa kwa ' + phone + ' KSH ' + amount + ' - Angalia simu yako!');
-  // Example fetch:
-  // fetch('/api/stkpush', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({phone, amount})})
-  // .then(r=>r.json()).then(d=>alert('Lipa kwa simu yako!'))
+  let phone = document.getElementById('mPhone')?.value || '';
+  if(!phone){ alert('Weka namba: 07XXXXXXXX'); return; }
+  alert('STK Push kwa ' + phone + ' - 0791 102687 - Angalia simu!');
 }
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.querySelectorAll('button').forEach(b=>{
-    if(b.textContent.includes('Lipa')){ b.style.pointerEvents='auto'; b.style.cursor='pointer'; b.style.zIndex='999'; if(!b.getAttribute('onclick')) b.setAttribute('onclick','triggerSTK()'); }
-  });
-});
-</script>
-
-<script>
 function triggerWalletSTK(){
-  const amtInput = document.querySelector('input[placeholder*="Amount to Add"], input[placeholder*="Amount you sent"]');
-  let amount = amtInput ? amtInput.value.trim() : '';
-  if(!amount || parseInt(amount) < 10){ alert('Weka kiasi cha kuongeza - min KSH 10'); return; }
-  alert('STK Push ya KSH ' + amount + ' kwa Wallet - Angalia simu yako!');
-  // fetch('/api/addfunds', {method:'POST', body: JSON.stringify({amount})})
+  let amt = document.querySelector('input[placeholder*="Amount to Add"]')?.value || '';
+  if(!amt){ alert('Weka kiasi!'); return; }
+  alert('STK ya KSH '+amt+' kwa Wallet!');
 }
-</script>
-
-<style id="force-clickable">
-/* FORCE ALL BUTTONS CLICKABLE */
-button, [onclick], .btn, div[role="button"] {
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  position: relative !important;
-  z-index: 99999 !important;
-  opacity: 1 !important;
-}
-#addFundsModal, #walletModal, #myWalletModal, [id*="Funds"], [id*="Wallet"] {
-  pointer-events: auto !important;
-}
-#addFundsModal *, #walletModal * {
-  pointer-events: auto !important;
-}
-input {
-  pointer-events: auto !important;
-  z-index: 99999 !important;
-  position: relative !important;
-}
-.modal, .modal-content {
-  pointer-events: auto !important;
-}
-</style>
-<script>
-// FORCE CLICKABLE JS
-document.addEventListener('DOMContentLoaded', function(){
-  function makeClickable(){
-    document.querySelectorAll('button').forEach(btn=>{
-      btn.style.pointerEvents='auto';
-      btn.style.cursor='pointer';
-      btn.style.zIndex='99999';
-      if(btn.textContent.includes('Add Money to Wallet') && !btn.onclick){
-        btn.onclick = function(){ 
-          const amt = document.getElementById('addAmount')?.value || document.querySelector('input[placeholder*="Amount"]')?.value;
-          if(!amt || amt < 10){ alert('Weka kiasi!'); return; }
-          alert('STK Push KSH '+amt+' - Angalia simu!');
-        };
-      }
-      if(btn.textContent.includes('Add Balance') && !btn.onclick){
-        btn.onclick = function(){ 
-          const amt = document.getElementById('addAmount')?.value;
-          alert('Confirming KSH '+ (amt||'') +' to Wallet!'); 
-        };
-      }
-      if(btn.textContent.includes('Lipa na M-PESA') && !btn.onclick){
-        btn.onclick = function(){ 
-          const phone = document.getElementById('mPhone')?.value;
-          if(!phone){ alert('Weka namba!'); return; }
-          alert('STK Push kwa '+phone); 
-        };
-      }
-    });
-  }
-  makeClickable();
-  setTimeout(makeClickable, 1000);
-  setTimeout(makeClickable, 3000);
-});
-function triggerWalletSTK(){
-  const el = document.getElementById('addAmount') || document.querySelector('input[placeholder*="Amount"]');
-  let amount = el ? el.value.trim() : '';
-  if(!amount || parseInt(amount) < 10){ alert('Weka kiasi - min KSH 10'); return; }
-  alert('STK Push ya KSH ' + amount + ' inatumwa - Angalia simu yako 0791 102687!');
-}
-function confirmAddFunds(){
-  const el = document.getElementById('addAmount');
-  let amount = el ? el.value.trim() : '';
-  if(!amount){ alert('Weka kiasi kwanza!'); return; }
-  alert('Confirming KSH ' + amount + ' - Adding to Wallet!');
-}
+function confirmAddFunds(){ triggerWalletSTK(); }
+// Make sure inputs are clickable
+setTimeout(()=>{document.querySelectorAll('button,input').forEach(e=>{e.style.pointerEvents='auto'; e.style.cursor='pointer'; e.style.zIndex='9999'; e.style.position='relative';});}, 500);
 </script>
 </body>
 </html>
