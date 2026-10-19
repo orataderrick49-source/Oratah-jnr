@@ -1,124 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ORATAH JNR NETWORKS</title>
+<title>Admin Full</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#060a1a;color:#e0e7ff;min-height:100vh;padding:0 0 30px}
-.header{background:linear-gradient(180deg,#0d1840,#0a1230);border:1px solid #d4af37;border-radius:20px;margin:12px;padding:16px;display:flex;justify-content:space-between;align-items:center}
-.logo-main{background:linear-gradient(100deg,#fff,#d4af37,#f9e79f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:20px;font-weight:900}
-.logo-sub{color:#d4af37;font-size:11px;letter-spacing:2px}
-.badge-gold{background:#0d1840;border:1px solid #d4af37;color:#f9e79f;padding:6px 14px;border-radius:100px;font-weight:800;font-size:13px}
-.wallet-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;margin:12px;border-radius:16px;background:linear-gradient(135deg,#0d1840,#162e6e);border:1px solid rgba(212,175,55,.4);position:sticky;top:5px;z-index:10}
-.wallet-bal{background:#0005;padding:6px 12px;border-radius:100px;border:1px solid rgba(212,175,55,.3);color:#fff}
-.btn-add{background:linear-gradient(135deg,#d4af37,#f9e79f);color:#000;border:none;padding:8px 14px;border-radius:100px;font-weight:900;cursor:pointer}
-.btn-hist{background:transparent;color:#f9e79f;border:1px solid rgba(212,175,55,.3);padding:8px 12px;border-radius:100px;font-weight:700;cursor:pointer}
-.tabs{display:flex;gap:10px;padding:10px 12px;overflow:auto}
-.tab{padding:12px 22px;border-radius:100px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:#8b9dc3;font-weight:800;cursor:pointer}
-.tab.active{background:linear-gradient(135deg,#1e3a8a,#162d6b);color:#f9e79f;border:1px solid #d4af37}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{background:linear-gradient(165deg,#1a2a6a,#0d1848);border:1px solid rgba(212,175,55,.45);border-radius:18px;padding:14px}
-.price{font-size:20px;font-weight:900;margin:10px 0;background:linear-gradient(100deg,#ffeaa7,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.buy{width:100%;padding:10px;border:none;border-radius:12px;background:linear-gradient(135deg,#1e3a8a,#d4af37,#f9e79f);font-weight:900;cursor:pointer}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:9999;justify-content:center;align-items:center;padding:20px}
-.modal-overlay.show{display:flex}
-.modal-popup{background:linear-gradient(165deg,#1a2a9a,#0d1848);border:1.5px solid #f9e79f;border-radius:24px;width:100%;max-width:380px;position:relative;animation:pop .3s}
-@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-head{padding:22px 24px 0;display:flex;gap:12px;align-items:center}
-.modal-icon{width:48px;height:48px;background:linear-gradient(135deg,#f9e79f,#d4af37);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
-.modal-title{font-size:20px;font-weight:900;color:#f9e79f}
-.modal-body{padding:18px 22px}
-.label{font-size:11px;color:#8bb0ff;font-weight:700;margin-bottom:5px}
-.balance-box{background:rgba(0,0,0,.3);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:14px;margin-bottom:14px}
-.balance-amount{font-size:30px;font-weight:900;color:#f9e79f}
-.deduct-box{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.35);border-radius:12px;padding:12px;display:flex;justify-content:space-between}
-.deduct-amount{font-weight:900;color:#fff}
-.input-box{width:100%;padding:13px;background:rgba(0,0,0,.4);border:1px solid rgba(212,175,55,.25);border-radius:12px;color:#fff;margin-top:10px}
-.btn-deduct{width:100%;padding:15px;background:linear-gradient(135deg,#f9e79f,#d4af37);color:#0d1840;border:none;border-radius:14px;font-weight:900;font-size:16px;margin-top:16px;cursor:pointer}
-.close-x{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);width:30px;height:30px;border-radius:100px;color:#fff;cursor:pointer}
-.mpesa-instruct{background:linear-gradient(90deg,#0f9d58,#00c853);color:#fff;padding:12px;border-radius:12px;font-size:13px;font-weight:700;text-align:center;margin-bottom:12px}
-.footer{background:#0e0e0e;border:1px solid rgba(212,175,55,.15);border-radius:18px;margin:20px 12px;padding:16px;text-align:center}
-.footer h4{color:#d4af37;font-size:13px}.footer p{color:#777;font-size:11px;margin-top:8px}
+body{margin:0;background:#070f2a;color:#fff;font-family:system-ui}
+header{background:#0f1c44;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.card{background:#16265a;border-radius:18px;padding:18px;margin:10px;border:1px solid #22366e}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:20px}
+table{width:100%;border-collapse:collapse}th{color:#8ea2d6;padding:10px;text-align:left}td{padding:10px;border-top:1px solid #15265a}
+input,select{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #23408a;background:#0a1538;color:#fff}
+button{padding:12px;border-radius:20px;border:0;font-weight:800}
+.btn-gold{background:#ffd700;color:#000;width:100%}
+.section{background:#0f1c44;margin:12px;border-radius:18px;padding:18px}
 </style>
 </head>
 <body>
-<div class="header"><div><div class="logo-main">ORATAH JNR NETWORKS</div><div class="logo-sub">⚡ FAST • 📦 TRUSTED • 🔒 RELIABLE</div></div><div class="badge-gold">📦 GOLD<br>120</div></div>
-<div class="wallet-bar"><div style="font-weight:900;color:#f9e79f">💼 Wallet: <span class="wallet-bal" id="walletBal">KES 0</span></div><div style="display:flex;gap:8px"><button class="btn-add" onclick="openAddFunds()">+ Add Funds</button><button class="btn-hist" onclick="showHistory()">History</button></div></div>
-<div class="tabs"><button class="tab active" onclick="showTab('data',this)">Data</button><button class="tab" onclick="showTab('airtime',this)">Airtime</button><button class="tab" onclick="showTab('kplc',this)">KPLC</button><button class="tab" onclick="showTab('bills',this)">Bills</button></div>
-<div id="grid" class="grid"></div>
-<div class="footer"><h4>🔒 Trusted | ⚡ Fast | 🛡️ Real M-PESA: 0791 102687</h4><p>All payments to 0791 102687 are real M-PESA. © 2026 ORATAH JNR NETWORKS</p></div>
-<div id="modal" class="modal-overlay" onclick="if(event.target==this)closeModal()"><div class="modal-popup"><button class="close-x" onclick="closeModal()">✕</button><div class="modal-head"><div class="modal-icon">💼</div><div class="modal-title">My Wallet</div></div><div class="modal-body"><div class="mpesa-instruct" id="mpesaInst">📱 📱 Lipa KES 0 kwa 0791 102687</div><div class="label">Available Balance</div><div class="balance-box"><div class="balance-amount" id="mBal">KSH 0.00</div></div><div class="label">Amount to Deduct</div><div class="deduct-box"><span id="mItem" style="color:#cbd5ff;font-size:13px">Bundle</span><span class="deduct-amount" id="mAmt">KSH 0</span></div><input id="mPhone" class="input-box" placeholder="Your Phone: 07XXXXXXXX"><button id="mpesaBtn" onclick="triggerSTK()" style="width:100%;background:#00A651;color:white;padding:14px;border-radius:12px;font-weight:bold;border:none;cursor:pointer;">
-📱 Lipa na M-PESA - 0791 102687
-</button><button  class="btn-deduct" id="mBtn" onclick="confirmPay()" onclick="confirmDeliver()" id="confirmDeliverBtn" style="width:100%;background:#FFEB3B;color:black;padding:16px;border-radius:12px;font-weight:bold;border:none;cursor:pointer;pointer-events:auto !important;z-index:99999 !important;position:relative !important;">Confirm Payment - Deliver Now</button><div style="margin-top:12px;text-align:center;font-size:11px;color:#8bb0ff">Real M-PESA • 0791 102687 • Instant</div></div></div></div>
-<div id="modalAdd" class="modal-overlay" onclick="if(event.target==this)closeAdd()"><div class="modal-popup"><button class="close-x" onclick="closeAdd()">✕</button><div class="modal-head"><div class="modal-icon">➕</div><div class="modal-title">Add Funds</div></div><div class="modal-body"><div class="mpesa-instruct">📱 Add Money to Wallet</div><input id="addAmt" class="input-box" type="number" placeholder="Amount to Add"><button  class="btn-deduct" onclick="doAdd()" onclick="confirmAddBalance()" id="confirmBalanceBtn" style="width:100%;background:#FFEB3B;color:black;padding:16px;border-radius:12px;font-weight:bold;border:none;cursor:pointer;pointer-events:auto !important;z-index:99999 !important;position:relative !important;margin-top:10px;">Confirm Payment - Add Balance</button></div></div></div>
+<header><h2 style="color:#ffd700;margin:0">ORATAH JNR ADMIN</h2><a href="index.html" style="color:#ffd700">Customer</a></header>
+<div class="grid">
+<div class="card"><b id="rev" style="font-size:24px;color:#ffd700">KES 0</b><br>Total Revenue</div>
+<div class="card"><b id="sales" style="font-size:24px;color:#ffd700">0</b><br>Total Sales</div>
+<div class="card"><b id="users" style="font-size:24px;color:#ffd700">0</b><br>Active Users</div>
+<div class="card"><b id="mpesa" style="font-size:24px;color:#ffd700">0</b><br>Mpesa Pending</div>
+</div>
+<div class="section"><h3 style="color:#ffd700">Packages</h3><div id="pkgBody">Loading...</div><input id="pName" placeholder="Name"><input id="pPrice" placeholder="Price"><button class="btn-gold" onclick="addPkg()">Add Package</button></div>
+<div class="section"><h3 style="color:#ffd700">Mpesa Transactions</h3><table><tr><th>Phone</th><th>Amount</th><th>Code</th></tr><tbody id="mpBody"><tr><td colspan=3 style="text-align:center;color:gray">No data yet</td></tr></tbody></table></div>
+<div class="section"><h3 style="color:#ffd700">Users</h3><table><tr><th>Phone</th><th>Bundle</th><th>Status</th></tr><tbody id="userBody"><tr><td colspan=3 style="text-align:center;color:gray">No users yet</td></tr></tbody></table></div>
 <script>
-let wallet=parseFloat(localStorage.getItem('ojn_wallet_real')||'0');let history=JSON.parse(localStorage.getItem('ojn_history_real')||'[]');let currentItem={name:'',price:0};
-function save(){localStorage.setItem('ojn_wallet_real',wallet);localStorage.setItem('ojn_history_real',JSON.stringify(history));upd()}
-function upd(){document.getElementById('walletBal').textContent='KES '+wallet.toLocaleString();document.getElementById('mBal').textContent='KSH '+wallet.toLocaleString()+'.00';}
-function openAddFunds(){document.getElementById('modalAdd').classList.add('show');}function closeAdd(){document.getElementById('modalAdd').classList.remove('show');}
-function doAdd(){let a=parseFloat(document.getElementById('addAmt').value);let code=document.getElementById('addCode').value.trim().toUpperCase();if(!a||a<10)return alert('Enter amount');if(code.length<8)return alert('Enter code');if(history.some(h=>h.code===code))return alert('Code imetumika!');wallet+=a;history.unshift({type:'DEPOSIT',amount:a,code:code,date:new Date().toLocaleString()});save();closeAdd();alert(' KES '+a+' added! Code:'+code);document.getElementById('addAmt').value='';document.getElementById('addCode').value='';}
-function showHistory(){if(!history.length)return alert('Hakuna');let t='HISTORY 0791 102687:\n\n';history.slice(0,15).forEach(h=>t+=`${h.date} | ${h.type} ${h.title||''} KES ${h.amount} Code:${h.code||''}\n`);alert(t);}
-function openModal(name,price){currentItem={name,price};document.getElementById('mItem').textContent=name;document.getElementById('mAmt').textContent='KSH '+price.toLocaleString()+'.00';document.getElementById('mpesaInst').textContent='📱 📱 Lipa KES '+price+' kwa 0791 102687';upd();document.getElementById('modal').classList.add('show');}
-function closeModal(){document.getElementById('modal').classList.remove('show');}
-function confirmPay(){let phone=document.getElementById('mPhone').value.trim();let code=document.getElementById('mCode').value.trim().toUpperCase();if(phone.length<10)return alert('Enter namba');if(code.length<8)return alert('Enter M-PESA code');if(history.some(h=>h.code===code))return alert('Code imetumika!');if(wallet<currentItem.price){let need=currentItem.price-wallet;return alert('Balance haitoshi! Unahitaji KES '+currentItem.price+'\nBalance: '+wallet+'\nTuma KES '+need+' kwa 0791 102687 via + Add Funds');}wallet-=currentItem.price;history.unshift({type:'PURCHASE',title:currentItem.name+' - '+phone,amount:currentItem.price,code:code,date:new Date().toLocaleString()});save();closeModal();alert(' CONFIRMED!\n\n'+currentItem.name+' KES '+currentItem.price+'\nPhone: '+phone+'\nCode: '+code+'\nTo: 0791 102687\nBalance: KES '+wallet);document.getElementById('mPhone').value='';document.getElementById('mCode').value='';}
-const offers={data:[{n:'1GB 1Hour',p:19},{n:'1.5GB 3Hours',p:49},{n:'2GB 24Hours',p:99},{n:'5GB 24Hours',p:199},{n:'2GB 7Days',p:250},{n:'5GB 7Days',p:350},{n:'10GB 7Days',p:500},{n:'15GB 7Days',p:700},{n:'3GB 30Days',p:500},{n:'5GB 30Days',p:750},{n:'8GB 30Days',p:1000},{n:'10GB 30Days',p:1200},{n:'15GB 30Days',p:1800},{n:'20GB 30Days',p:2200},{n:'30GB 30Days',p:3000},{n:'40GB 30Days',p:3500},{n:'50GB 30Days',p:4000},{n:'75GB 30Days',p:5500},{n:'100GB 30Days',p:6500},{n:'200GB 30Days',p:12000},{n:'2GB Till Midnight',p:55},{n:'10GB Till Midnight',p:250},{n:'1GB Weekly',p:99},{n:'Bonga 1GB',p:50},{n:'YouTube 5GB',p:200},{n:'WhatsApp 5GB',p:150},{n:'Social 10GB',p:300},{n:'Night 10GB',p:150},{n:'Weekend 5GB',p:199},{n:'Monthly 5GB',p:999}],airtime:[{n:'Airtime 10',p:10},{n:'Airtime 20',p:20},{n:'Airtime 50',p:50},{n:'Airtime 100',p:100},{n:'Airtime 200',p:200},{n:'Airtime 500',p:500},{n:'Airtime 1000',p:1000},{n:'Airtime 20 Telkom',p:20},{n:'Airtime 50 Telkom',p:50},{n:'Airtime 100 Telkom',p:100},{n:'Airtime 20 Airtel',p:20},{n:'Airtime 50 Airtel',p:50},{n:'Airtime 100 Airtel',p:100},{n:'Airtime 500 Airtel',p:500},{n:'Airtime 1000 Airtel',p:1000},{n:'Airtime 50 Faiba',p:50},{n:'Airtime 100 Faiba',p:100},{n:'Airtime 500 Faiba',p:500},{n:'Airtel 200',p:200},{n:'Safaricom 200',p:200},{n:'Safaricom 500',p:500},{n:'Safaricom 1000',p:1000},{n:'Telkom 200',p:200},{n:'Telkom 500',p:500},{n:'Airtel 50 + 2GB',p:50},{n:'Safaricom 100 + 1GB',p:100},{n:'Airtel 1000 + 10GB',p:1000},{n:'Faiba 1000 + 25GB',p:1000},{n:'Safaricom Bonga',p:100},{n:'Airtel Thanks',p:50}],kplc:[{n:'KPLC 50 Units',p:500},{n:'KPLC 100 Units',p:1000},{n:'KPLC 200 Units',p:2000},{n:'KPLC 500 Units',p:5000},{n:'KPLC Token 20',p:250},{n:'KPLC Token 50',p:550},{n:'KPLC Token 100',p:1100},{n:'KPLC Token 150',p:1650},{n:'KPLC Token 300',p:3300},{n:'KPLC Token 1000',p:11000},{n:'KPLC Prepaid 50',p:500},{n:'KPLC Prepaid 100',p:1000},{n:'KPLC Prepaid 250',p:2750},{n:'KPLC Postpaid 500',p:500},{n:'KPLC Postpaid 1000',p:1000},{n:'KPLC Postpaid 2000',p:2000},{n:'KPLC Postpaid 5000',p:5000},{n:'KPLC Bill 100',p:100},{n:'KPLC Bill 200',p:200},{n:'KPLC Bill 500',p:500},{n:'KPLC Bill 1000',p:1000},{n:'KPLC Bill 2000',p:2000},{n:'KPLC Bill 3000',p:3000},{n:'KPLC Bill 5000',p:5000},{n:'KPLC Bill 10000',p:10000},{n:'KPLC Token 75',p:800},{n:'KPLC Token 125',p:1350},{n:'KPLC Token 400',p:4400},{n:'KPLC Token 600',p:6600},{n:'KPLC Emergency',p:300}],bills:[{n:'DSTV Padi 950',p:950},{n:'DSTV Yanga 1100',p:1100},{n:'DSTV Confam 2000',p:2000},{n:'DSTV Compact 3900',p:3900},{n:'DSTV Compact Plus 6150',p:6150},{n:'DSTV Premium 10500',p:10500},{n:'GOTV Lite 199',p:199},{n:'GOTV Value 499',p:499},{n:'GOTV Plus 899',p:899},{n:'GOTV Max 1299',p:1299},{n:'GOTV Supa 1799',p:1799},{n:'Startimes Nyota 299',p:299},{n:'Startimes Basic 699',p:699},{n:'Startimes Classic 1299',p:1299},{n:'Zuku 30Mbps',p:3000},{n:'Zuku 60Mbps',p:4500},{n:'Zuku 120Mbps',p:7000},{n:'Nairobi Water 500',p:500},{n:'Nairobi Water 1000',p:1000},{n:'Nairobi Water 2000',p:2000},{n:'NSSF 500',p:500},{n:'NHIF 500',p:500},{n:'KRA Nil',p:100},{n:'KRA 1000',p:1000},{n:'HELB 1000',p:1000},{n:'HELB 2000',p:2000},{n:'DSTV Holi 1599',p:1599},{n:'GOTV Supa Plus 1999',p:1999},{n:'Showmax Mobile',p:450},{n:'Showmax All',p:950}]};
-let cur='data';function showTab(tab,btn){cur=tab;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');render();}
-function render(){const g=document.getElementById('grid');g.innerHTML='';offers[cur].forEach(o=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${o.n}</h3><p>Instant • Trusted</p><div class="price">KES ${o.p}</div><button class="buy" onclick="openModal('${o.n}',${o.p})">Buy Now</button>`;g.appendChild(c);});}
-render();upd();
-</script>
-
-<script>
-function triggerSTK(){
-  let phone = document.getElementById('mPhone')?.value || '';
-  if(!phone){ alert('Weka namba: 07XXXXXXXX'); return; }
-  alert('STK Push kwa ' + phone + ' - 0791 102687 - Angalia simu!');
-}
-function triggerWalletSTK(){
-  let amt = document.querySelector('input[placeholder*="Amount to Add"]')?.value || '';
-  if(!amt){ alert('Weka kiasi!'); return; }
-  alert('STK ya KSH '+amt+' kwa Wallet!');
-}
-function confirmAddFunds(){ triggerWalletSTK(); }
-// Make sure inputs are clickable
-setTimeout(()=>{document.querySelectorAll('button,input').forEach(e=>{e.style.pointerEvents='auto'; e.style.cursor='pointer'; e.style.zIndex='9999'; e.style.position='relative';});}, 500);
-</script>
-
-<script>
-function confirmDeliver(){
-  let phone = document.getElementById('mPhone')?.value || '';
-  if(!phone){ alert('Weka namba ya simu kwanza!'); return; }
-  alert('✅ Confirming Delivery kwa ' + phone + '! Bundle inatumwa...');
-  console.log('Deliver to', phone);
-  // hapa weka code yako ya kudeliver
-}
-function confirmAddBalance(){
-  let amt = document.getElementById('addAmount')?.value || document.querySelector('input[placeholder*="Amount"]')?.value || '';
-  if(!amt){ alert('Weka kiasi kwanza!'); return; }
-  alert('✅ Adding KSH ' + amt + ' to Wallet!');
-  console.log('Add balance', amt);
-}
-function triggerSTK(){
-  let phone = document.getElementById('mPhone')?.value || '';
-  if(!phone){ alert('Weka namba: 07XXXXXXXX'); return; }
-  alert('📱 STK Push kwa ' + phone + ' - 0791 102687');
-}
-function triggerWalletSTK(){
-  let amt = document.getElementById('addAmount')?.value || '';
-  if(!amt){ alert('Weka kiasi!'); return; }
-  alert('📱 STK ya KSH '+amt+' kwa Wallet!');
-}
-// Force clickable after load
-window.addEventListener('load', ()=>{
-  document.querySelectorAll('button').forEach(b=>{
-    b.style.pointerEvents='auto';
-    b.style.cursor='pointer';
-    b.style.zIndex='99999';
-    b.style.position='relative';
-    b.disabled = false;
-    b.removeAttribute('disabled');
-  });
-});
+let pkgs=JSON.parse(localStorage.getItem('oratah_packages')||'[]');
+if(pkgs.length==0){pkgs=[{name:'1GB Daily',price:19},{name:'5GB Weekly',price:99},{name:'10GB Monthly',price:299}];localStorage.setItem('oratah_packages',JSON.stringify(pkgs));}
+function loadPkg(){let h='';pkgs.forEach((p,i)=>{h+=p.name+' - KES '+p.price+' <button onclick="delPkg('+i+')">Del</button><br>';});document.getElementById('pkgBody').innerHTML=h;}
+function addPkg(){let n=document.getElementById('pName').value,p=document.getElementById('pPrice').value;if(!n||!p)return alert('fill');pkgs.push({name:n,price:p});localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
+function delPkg(i){pkgs.splice(i,1);localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
+loadPkg();
 </script>
 </body>
 </html>
