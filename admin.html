@@ -1,1 +1,17 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Login</title><style>body{background:#0a1128;color:#fff;font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}.box{background:#162044;padding:24px;border-radius:16px;width:90%;max-width:360px}input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:0}button{width:100%;padding:12px;background:#ffd700;color:#000;border:0;border-radius:20px;font-weight:700}</style></head><body><div class="box"><h2 style="color:#ffd700;text-align:center">ORATAH JNR ADMIN</h2><input id="u" placeholder="Username"><input id="p" type="password" placeholder="Password"><button onclick="login()">Login</button><p id="msg" style="text-align:center"></p></div><script>function login(){var u=document.getElementById('u').value.trim();var p=document.getElementById('p').value.trim();if(u==='Oratah'&&p==='0791102687'){document.getElementById('msg').innerText='Welcome!';setTimeout(function(){location.href='admin-dashboard.html'},600)}else{document.getElementById('msg').innerText='Wrong password'}}</script></body></html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin</title>
+<style>body{background:#0a1128;color:#fff;font-family:system-ui;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}.box{background:#162044;padding:28px;border-radius:20px;width:92%;max-width:380px;text-align:center}input{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:0;box-sizing:border-box}button{width:100%;padding:14px;background:#ffd700;color:#000;border:0;border-radius:22px;font-weight:800;margin-top:10px}</style>
+</head><body>
+<div class="box"><h2 style="color:#ffd700">ORATAH JNR ADMIN</h2><p>Login to Dashboard</p>
+<input id="u" placeholder="Username"><input id="p" type="password" placeholder="Password">
+<button onclick="login()">Login</button><p id="msg"></p></div>
+<script>
+function login(){
+var u=document.getElementById('u').value.trim();
+var p=document.getElementById('p').value.trim();
+if(u==='Oratah'&&p==='0791102687'){
+document.getElementById('msg').innerText='Welcome!';
+setTimeout(function(){location.href='admin-dashboard.html'},700);
+}else{document.getElementById('msg').innerText='Wrong! Use Oratah / 0791102687';}
+}
+</script></body></html>
