@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>ORATAH JNR ADMIN - PRIVATE</title>
-<script>
-// SECURE LOCK - CHANGE PASSWORD HERE
-let pwd = prompt("ORATAH JNR ADMIN - Enter Password:");
-if(pwd !== "Oratah2024"){
-  document.write("<h1 style='color:red;text-align:center;margin-top:100px'>ACCESS DENIED</h1><p style='text-align:center'>Wrong password. Go back to <a href='index.html'>Customer Page</a></p>");
-  throw new Error("Blocked");
-}
-</script>
-<style>body{background:#111;color:#ffd700;font-family:sans-serif;padding:15px}.card{background:#222;padding:15px;margin:5px;border-radius:8px}.section{background:#1a1a1a;padding:10px;margin-top:15px;border-radius:8px}.btn-gold{background:#ffd700;color:black;padding:5px 10px;border:none;border-radius:4px}</style>
-</head><body>
-<header><h2 style="color:#ffd700;margin:0">ORATAH JNR ADMIN - SECURE</h2><p>Contact: 0791 102687 | KENYA | <a href="index.html" style="color:#ffd700">Go to Customer Site</a></p></header>
-<div class="grid">
-<div class="card"><b id="rev" style="font-size:24px;color:#ffd700">KES 0</b><br>Total Revenue</div>
-<div class="card"><b id="sales" style="font-size:24px;color:#ffd700">0</b><br>Total Sales</div>
-<div class="card"><b id="users" style="font-size:24px;color:#ffd700">0</b><br>Active Users</div>
-<div class="card"><b id="mpesa" style="font-size:24px;color:#ffd700">0</b><br>Mpesa Pending</div>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah JNR - Admin</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:linear-gradient(135deg,#0f0f0f,#1a1a1a);min-height:100vh;display:flex;align-items:center;justify-content:center;color:white}
+.login-card{background:#1e1e1e;border:1px solid #ffd70030;padding:30px;border-radius:20px;width:90%;max-width:400px;box-shadow:0 10px 40px rgba(255,215,0,0.15)}
+h1{color:#ffd700;text-align:center;margin-bottom:5px} .sub{text-align:center;color:#888;font-size:12px;margin-bottom:25px}
+input{width:100%;padding:14px;border-radius:10px;border:1px solid #333;background:#2a2a2a;color:white;margin-bottom:15px;outline:none}
+input:focus{border-color:#ffd700}
+button{width:100%;padding:14px;background:#ffd700;color:black;border:none;border-radius:10px;font-weight:bold;font-size:16px;cursor:pointer}
+button:hover{background:#ffcc00}
+.err{color:#ff5555;text-align:center;margin-top:10px;display:none;font-size:13px}
+.admin-content{display:none;padding:20px;background:#111;min-height:100vh;width:100%}
+</style></head><body>
+<div id="loginBox" class="login-card">
+<h1>ORATAH JNR</h1><p class="sub">ADMIN PORTAL - KENYA | 0791 102687</p>
+<input type="password" id="pwd" placeholder="Enter Admin Password">
+<button onclick="checkPwd()">INGIA - LOGIN</button>
+<p id="err" class="err">Wrong Password! Jaribu tena.</p>
+<p style="text-align:center;margin-top:15px"><a href="index.html" style="color:#888;font-size:12px;text-decoration:none">← Back to Customer Site</a></p>
 </div>
-<div class="section"><h3 style="color:#ffd700">Packages - KENYA Price List</h3><div id="pkgBody">Loading...</div><input id="pName" placeholder="Name"><input id="pPrice" placeholder="Price"><button class="btn-gold" onclick="addPkg()">Add Package</button></div>
-<div class="section"><h3 style="color:#ffd700">Mpesa Transactions</h3><table><tr><th>Phone</th><th>Amount</th><th>Code</th></tr><tbody id="mpBody"><tr><td colspan=3 style="text-align:center;color:gray">No data yet</td></tr></tbody></table></div>
-<div class="section"><h3 style="color:#ffd700">Users</h3><table><tr><th>Phone</th><th>Bundle</th><th>Status</th></tr><tbody id="userBody"><tr><td colspan=3 style="text-align:center;color:gray">No users yet</td></tr></tbody></table></div>
+
+<div id="adminBox" class="admin-content">
+<header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h2 style="color:#ffd700">DASHBOARD</h2><a href="index.html" style="color:#ffd700;text-decoration:none;border:1px solid #ffd700;padding:5px 10px;border-radius:5px">Customer View</a></header>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#222;padding:15px;border-radius:12px"><b style="font-size:22px;color:#ffd700">KES 0</b><br><span style="font-size:12px;color:#888">Revenue</span></div>
+<div style="background:#222;padding:15px;border-radius:12px"><b style="font-size:22px;color:#ffd700">0</b><br><span style="font-size:12px;color:#888">Total Sales</span></div>
+<div style="background:#222;padding:15px;border-radius:12px"><b style="font-size:22px;color:#ffd700">0</b><br><span style="font-size:12px;color:#888">Users</span></div>
+<div style="background:#222;padding:15px;border-radius:12px"><b style="font-size:22px;color:#ffd700">0</b><br><span style="font-size:12px;color:#888">Mpesa Pending</span></div>
+</div>
+<div style="background:#1a1a1a;padding:15px;border-radius:12px;margin-top:20px"><h3 style="color:#ffd700;margin-bottom:10px">Packages - KSh 16</h3><div id="pkgBody"></div></div>
+</div>
+
 <script>
+function checkPwd(){
+ let p=document.getElementById('pwd').value;
+ if(p==="Oratah2024"){document.getElementById('loginBox').style.display='none';document.getElementById('adminBox').style.display='block';document.body.style.display='block';document.body.style.background='#111';loadPkg();}
+ else{document.getElementById('err').style.display='block';}
+}
 let pkgs=JSON.parse(localStorage.getItem('oratah_packages')||'[]');
 if(pkgs.length==0){pkgs=[{name:'20 Mins 1HR',price:10},{name:'45 Mins 3hrs',price:18},{name:'100 Mins Midnyt',price:33},{name:'50 Mins Midnyt',price:16},{name:'Kredo 110 3hrs',price:20},{name:'Kredo 75 Midnyt',price:30}];localStorage.setItem('oratah_packages',JSON.stringify(pkgs));}
-function loadPkg(){let h="";pkgs.forEach((p,i)=>{h+=p.name+" - KES "+p.price+" <button onclick=\"delPkg('"+i+"')\">Del</button><br>";});document.getElementById('pkgBody').innerHTML=h;}
-function addPkg(){let n=document.getElementById('pName').value,p=document.getElementById('pPrice').value;if(!n||!p)return alert('fill');pkgs.push({name:n,price:p});localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
-function delPkg(i){pkgs.splice(i,1);localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
-loadPkg();
-</script>
-</body></html>
+function loadPkg(){let h="";pkgs.forEach((p,i)=>{h+=`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222"><span>${p.name} - KES ${p.price}</span><span style="color:#ff5555" onclick="pkgs.splice(${i},1);localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg()">Del</span></div>`;});document.getElementById('pkgBody').innerHTML=h;}
+</script></body></html>
