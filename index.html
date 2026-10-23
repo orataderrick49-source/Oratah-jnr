@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Full</title>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah JNR Networks - Kenya Bundles</title>
 <style>
-body{margin:0;background:#070f2a;color:#fff;font-family:system-ui}
-header{background:#0f1c44;padding:16px;display:flex;justify-content:space-between;align-items:center}
-.card{background:#16265a;border-radius:18px;padding:18px;margin:10px;border:1px solid #22366e}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:20px}
-table{width:100%;border-collapse:collapse}th{color:#8ea2d6;padding:10px;text-align:left}td{padding:10px;border-top:1px solid #15265a}
-input,select{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #23408a;background:#0a1538;color:#fff}
-button{padding:12px;border-radius:20px;border:0;font-weight:800}
-.btn-gold{background:#ffd700;color:#000;width:100%}
-.section{background:#0f1c44;margin:12px;border-radius:18px;padding:18px}
-</style>
-</head>
-<body>
-<header><h2 style="color:#ffd700;margin:0">ORATAH JNR ADMIN</h2><a href="index.html" style="color:#ffd700">Customer</a></header>
-<div class="grid">
-<div class="card"><b id="rev" style="font-size:24px;color:#ffd700">KES 0</b><br>Total Revenue</div>
-<div class="card"><b id="sales" style="font-size:24px;color:#ffd700">0</b><br>Total Sales</div>
-<div class="card"><b id="users" style="font-size:24px;color:#ffd700">0</b><br>Active Users</div>
-<div class="card"><b id="mpesa" style="font-size:24px;color:#ffd700">0</b><br>Mpesa Pending</div>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#0a0a0a;color:white}
+.header{background:linear-gradient(135deg,#FFD700,#FFA500);color:black;padding:20px;text-align:center}
+.header h1{font-size:24px;font-weight:900}
+.header p{font-size:13px;margin-top:5px}
+.container{padding:15px;max-width:500px;margin:auto}
+.bundle{background:#1e1e1e;border:1px solid #333;border-radius:15px;padding:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.bundle:hover{border-color:#FFD700}
+.price{font-size:20px;font-weight:bold;color:#FFD700}
+.name{font-size:13px;color:#ccc;margin-top:3px}
+.buy{background:#FFD700;color:black;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer}
+.footer{text-align:center;padding:20px;color:#666;font-size:12px}
+.tag{background:black;color:#FFD700;padding:3px 8px;border-radius:5px;font-size:11px;display:inline-block;margin-top:5px}
+</style></head><body>
+<div class="header">
+<h1>ORATAH JNR NETWORKS</h1>
+<p>🇰🇪 SAMBAZA FURAHA - KENYA | 0791 102687</p>
 </div>
-<div class="section"><h3 style="color:#ffd700">Packages</h3><div id="pkgBody">Loading...</div><input id="pName" placeholder="Name"><input id="pPrice" placeholder="Price"><button class="btn-gold" onclick="addPkg()">Add Package</button></div>
-<div class="section"><h3 style="color:#ffd700">Mpesa Transactions</h3><table><tr><th>Phone</th><th>Amount</th><th>Code</th></tr><tbody id="mpBody"><tr><td colspan=3 style="text-align:center;color:gray">No data yet</td></tr></tbody></table></div>
-<div class="section"><h3 style="color:#ffd700">Users</h3><table><tr><th>Phone</th><th>Bundle</th><th>Status</th></tr><tbody id="userBody"><tr><td colspan=3 style="text-align:center;color:gray">No users yet</td></tr></tbody></table></div>
+<div class="container">
+<div style="background:#1a1a1a;padding:12px;border-radius:10px;margin-bottom:15px;text-align:center">
+<b style="color:#FFD700">LIPA NA M-PESA</b><br><span style="font-size:12px;color:#aaa">Till ama Send Money - 0791 102687</span>
+<span class="tag">KENYA • KSh 16 BEST DEAL</span>
+</div>
+
+<div class="bundle"><div><div class="price">KSh 10</div><div class="name">20 Mins - 1HR</div></div><button class="buy" onclick="buy('10')">BUY</button></div>
+<div class="bundle"><div><div class="price">KSh 18</div><div class="name">45 Mins - 3hrs</div></div><button class="buy" onclick="buy('18')">BUY</button></div>
+<div class="bundle"><div><div class="price">KSh 33</div><div class="name">100 Mins - Midnyt</div></div><button class="buy" onclick="buy('33')">BUY</button></div>
+<div class="bundle" style="border:1px solid #FFD700"><div><div class="price">KSh 16 ⭐</div><div class="name">50 Mins - Midnyt (POPULAR)</div></div><button class="buy" onclick="buy('16')">BUY</button></div>
+<div class="bundle"><div><div class="price">KSh 20</div><div class="name">Kredo 110 - 3hrs</div></div><button class="buy" onclick="buy('20')">BUY</button></div>
+<div class="bundle"><div><div class="price">KSh 30</div><div class="name">Kredo 75 - Midnyt</div></div><button class="buy" onclick="buy('30')">BUY</button></div>
+
+</div>
+<div class="footer">
+Oratah JNR © 2026 - All Rights Reserved Kenya<br>
+Customer Site Only - No Admin Here
+</div>
 <script>
-let pkgs=JSON.parse(localStorage.getItem('oratah_packages')||'[]');
-if(pkgs.length==0){pkgs=[{name:'1GB Daily',price:19},{name:'5GB Weekly',price:99},{name:'10GB Monthly',price:299}];localStorage.setItem('oratah_packages',JSON.stringify(pkgs));}
-function loadPkg(){let h='';pkgs.forEach((p,i)=>{h+=p.name+' - KES '+p.price+' <button onclick="delPkg('+i+')">Del</button><br>';});document.getElementById('pkgBody').innerHTML=h;}
-function addPkg(){let n=document.getElementById('pName').value,p=document.getElementById('pPrice').value;if(!n||!p)return alert('fill');pkgs.push({name:n,price:p});localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
-function delPkg(i){pkgs.splice(i,1);localStorage.setItem('oratah_packages',JSON.stringify(pkgs));loadPkg();}
-loadPkg();
+function buy(p){let phone=prompt("Weka namba yako ya M-Pesa (07...):"); if(phone){alert("Umetuma KSh "+p+" | Namba: "+phone+"\nSubiri confirmation - Oratah JNR");}}
 </script>
-</body>
-</html>
+</body></html>
