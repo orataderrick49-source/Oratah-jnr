@@ -1,1 +1,63 @@
-... (ile code yote)
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oratah JNR - Till 1845876</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0a0a0a;color:white}
+.header{background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;padding:16px;text-align:center}
+.till{background:#FFD700;color:#000;text-align:center;padding:14px;font-weight:900;font-size:22px}
+.till small{display:block;font-size:11px;font-weight:600;margin-top:4px}
+.tabs{display:flex;gap:6px;justify-content:center;padding:10px;background:#111;position:sticky;top:0}
+.tab{padding:8px 14px;border-radius:20px;border:1px solid #333;background:#1e1e1e;color:#aaa;font-size:12px;cursor:pointer}.tab.active{background:#FFD700;color:#000;font-weight:bold}
+.container{padding:12px;max-width:500px;margin:auto}.bundle{background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.price{color:#FFD700;font-weight:bold}.buy{background:#FFD700;color:#000;border:none;padding:8px 16px;border-radius:20px;font-weight:900}
+.box{background:#1a1a1a;border:1px dashed #FFD700;padding:12px;border-radius:10px;margin-top:15px;text-align:center}
+.box input{width:65%;padding:10px;border-radius:8px;border:1px solid #333;background:#000;color:white}
+.box button{padding:10px 14px;background:#FFD700;border:none;border-radius:8px;font-weight:bold;margin-left:5px}
+</style></head><body>
+<div class="header"><h1>ORATAH JNR NETWORKS</h1><p>🇰🇪 Official M-Pesa Till Payment</p></div>
+<div class="till">LIPA NA M-PESA TILL: 1845876<br><small>STORE: 1377538 | JINA: ORATAH JNR NETWORKS - Thibitisha jina kabla ya kulipa</small></div>
+<div class="tabs">
+<div class="tab active" onclick="show('minutes',this)">📞 MINUTES</div>
+<div class="tab" onclick="show('data',this)">📶 BINGWA DATA</div>
+<div class="tab" onclick="show('sms',this)">💬 SMS</div>
+</div>
+<div class="container">
+<div id="minutesSec"><div id="minList"></div></div>
+<div id="dataSec" style="display:none"><div id="dataList"></div></div>
+<div id="smsSec" style="display:none"><div id="smsList"></div></div>
+<div class="box">
+<p style="font-size:12px;color:#FFD700;font-weight:bold">Baada ya kulipa, weka M-Pesa Code hapa</p>
+<input id="code" placeholder="e.g QGJ7K9..."><button onclick="confirmPay()">CONFIRM</button>
+<p style="font-size:10px;color:#888;margin-top:6px">Bundle inatumwa in 2 mins kwa namba uliolipia nayo</p>
+</div>
+</div>
+<script>
+let all=[
+{name:'20 Mins 1HR',price:10,type:'minutes'},
+{name:'45 Mins 3hrs',price:18,type:'minutes'},
+{name:'50 Mins Midnyt POPULAR',price:16,type:'minutes',pop:1},
+{name:'100 Mins Midnyt',price:33,type:'minutes'},
+{name:'Kredo 110 3hrs',price:20,type:'minutes'},
+{name:'Kredo 75 Midnyt',price:30,type:'minutes'},
+{name:'1GB Bingwa 1HR',price:19,type:'data'},
+{name:'2GB Bingwa 3Hrs',price:45,type:'data'},
+{name:'5GB Bingwa Midnyt POPULAR',price:79,type:'data',pop:1},
+{name:'10GB Bingwa 24Hrs',price:149,type:'data'},
+{name:'100 SMS 1Day',price:10,type:'sms'},
+{name:'500 SMS 7Days',price:29,type:'sms'},
+{name:'1000 SMS Midnyt',price:16,type:'sms',pop:1}
+];
+function render(){
+let h=a=>a.map(p=>`<div class="bundle"><div><div class="price">KSh ${p.price} ${p.pop?'<span style=background:#FFD700;color:#000;font-size:9px;padding:2px 5px;border-radius:4px;margin-left:5px>POPULAR</span>':''}</div><div style="font-size:11px;color:#aaa">${p.name}</div></div><button class="buy" onclick="buy('${p.name}',${p.price})">BUY</button></div>`).join('');
+document.getElementById('minList').innerHTML=h(all.filter(x=>x.type==='minutes'));
+document.getElementById('dataList').innerHTML=h(all.filter(x=>x.type==='data'));
+document.getElementById('smsList').innerHTML=h(all.filter(x=>x.type==='sms'));
+}
+function show(t,el){
+document.getElementById('minutesSec').style.display=t==='minutes'?'block':'none';
+document.getElementById('dataSec').style.display=t==='data'?'block':'none';
+document.getElementById('smsSec').style.display=t==='sms'?'block':'none';
+document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));el.classList.add('active');
+}
+function buy(n,p){alert(`LIPA:\nTILL: 1845876\nAmount: KSh ${p}\nJina: ORATAH JNR\n\nBundle: ${n}\n\nBaada ya kulipa, rudi hapa uweke M-Pesa Code.`);window.scrollTo(0,document.body.scrollHeight);}
+function confirmPay(){let c=document.getElementById('code').value;if(!c)return alert('Weka Code');alert('Asante! Code '+c+' imepokelewa. Tutakutumia bundle sasa. Check M-Pesa Business App kwa malipo');}
+render();
+</script></body></html>
