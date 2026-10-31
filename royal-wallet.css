@@ -1,0 +1,14 @@
+/* ROYAL BLUE GOLD + WALLET */
+body{background:#060a1a!important;background:radial-gradient(1200px 600px at 10% -10%,rgba(212,175,55,.12),transparent),radial-gradient(1000px 500px at 90% 0%,rgba(30,58,175,.25),transparent),#060a1a!important}
+.wallet-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;margin:10px 0;background:linear-gradient(135deg,#0d1840,#142a6b);border:1px solid rgba(212,175,55,.35);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 20px rgba(212,175,55,.12);position:sticky;top:5px;z-index:20}
+.wallet-left{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;color:#f9e79f}
+.wallet-bal{background:rgba(0,0,0,.3);padding:6px 14px;border-radius:100px;border:1px solid rgba(212,175,55,.3);color:#fff;font-weight:900}
+.wallet-actions{display:flex;gap:8px}
+.btn-add{background:linear-gradient(135deg,#d4af37,#f9e79f);color:#000;border:none;padding:7px 14px;border-radius:100px;font-weight:900;font-size:12px;cursor:pointer;box-shadow:0 3px 12px rgba(212,175,55,.4)}
+.btn-hist{background:rgba(255,255,255,.08);color:#f9e79f;border:1px solid rgba(212,175,55,.25);padding:7px 12px;border-radius:100px;font-weight:700;font-size:11px;cursor:pointer}
+header,.header{background:linear-gradient(180deg,#0d1840,#0a1230)!important;border-bottom:1px solid rgba(212,175,55,.35)!important}
+.logo{color:#f9e79f!important;background:linear-gradient(100deg,#fff,#d4af37,#f9e79f)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.card{background:linear-gradient(165deg,#1a2a6a,#0d1848)!important;border:1px solid rgba(212,175,55,.4)!important;border-radius:18px!important;box-shadow:0 8px 32px #000,0 0 20px rgba(212,175,55,.15)!important}
+.card:hover{transform:translateY(-5px)!important;box-shadow:0 15px 50px #000,0 0 40px rgba(212,175,55,.3)!important}
+.price{color:#f9e79f!important;background:linear-gradient(100deg,#ffeaa7,#d4af37)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;font-weight:900!important}
+.buy{background:linear-gradient(135deg,#1e3a8a,#d4af37,#f9e79f)!important;color:#000!important;font-weight:900!important;border-radius:12px!important}
